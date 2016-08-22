@@ -1,0 +1,330 @@
+fileFormatVersion: 2
+guid: 3d4e84657237d7c4a9270b81865c0cb4
+timeCreated: 1463451377
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: jumpRight_0
+    21300002: jumpRight_1
+    21300004: jumpRight_2
+    21300006: jumpRight_3
+    21300008: jumpRight_4
+    21300010: jumpRight_5
+    21300012: jumpRight_6
+    21300014: jumpRight_7
+    21300016: jumpRight_8
+    21300018: jumpRight_9
+    21300020: jumpRight_10
+    21300022: jumpRight_11
+    21300024: jumpRight_12
+    21300026: jumpRight_13
+    21300028: jumpRight_14
+    21300030: jumpRight_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: jumpRight_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1
+        width: 40
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 12}
+        - {x: -19, y: 8}
+        - {x: -20, y: 7}
+        - {x: -20, y: -24}
+        - {x: 20, y: -24}
+        - {x: 20, y: 7}
+        - {x: 16, y: 12}
+    - name: jumpRight_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 1
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 15}
+        - {x: -18, y: 10}
+        - {x: -18, y: -24}
+        - {x: 15, y: -24}
+        - {x: 18, y: -10}
+        - {x: 18, y: 2}
+        - {x: 6, y: 15}
+    - name: jumpRight_2
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 1
+        width: 37
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2.5, y: 14}
+        - {x: -18.5, y: 4}
+        - {x: -18.5, y: -15}
+        - {x: -10.5, y: -15}
+        - {x: -11.5, y: -18}
+        - {x: -10.5, y: -23}
+        - {x: -10.5, y: -24}
+        - {x: 16.5, y: -24}
+        - {x: 18.5, y: -22}
+        - {x: 18.5, y: 4}
+        - {x: 14.5, y: 14}
+    - name: jumpRight_3
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 1
+        width: 32
+        height: 48
+      alignment: 9
+      pivot: {x: 0.53119516, y: 0.48712555}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.998245, y: 20.617973}
+        - {x: -16.998245, y: -15.382027}
+        - {x: -15.998245, y: -18.382027}
+        - {x: -13.998245, y: -23.382027}
+        - {x: 7.0017548, y: -23.382027}
+        - {x: 15.001755, y: -13.382027}
+        - {x: 15.001755, y: 14.617973}
+        - {x: 13.001755, y: 20.617973}
+    - name: jumpRight_4
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1
+        width: 29
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5344223, y: 0.5302493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: jumpRight_5
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 1
+        width: 31
+        height: 48
+      alignment: 9
+      pivot: {x: 0.54293627, y: 0.5302493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: jumpRight_6
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 1
+        width: 29
+        height: 48
+      alignment: 9
+      pivot: {x: 0.52294767, y: 0.52457756}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: jumpRight_7
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1
+        width: 29
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5114746, y: 0.53024954}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: jumpRight_8
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 1
+        width: 32
+        height: 48
+      alignment: 9
+      pivot: {x: 0.47920418, y: 0.53781193}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.334534, y: 20.185028}
+        - {x: -15.334534, y: 12.185028}
+        - {x: -15.334534, y: -15.814972}
+        - {x: -12.334534, y: -25.814972}
+        - {x: 2.6654663, y: -25.814972}
+        - {x: 16.665466, y: -12.814972}
+        - {x: 16.665466, y: 8.185028}
+        - {x: 8.665466, y: 20.185028}
+    - name: jumpRight_9
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 1
+        width: 38
+        height: 48
+      alignment: 9
+      pivot: {x: 0.56129533, y: 0.47920287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.3292236, y: 22.998262}
+        - {x: -21.329224, y: 11.998262}
+        - {x: -21.329224, y: -3.0017376}
+        - {x: -11.329224, y: -23.001738}
+        - {x: 5.6707764, y: -23.001738}
+        - {x: 16.670776, y: -15.001738}
+        - {x: 16.670776, y: 14.998262}
+        - {x: 11.670776, y: 22.998262}
+    - name: jumpRight_10
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 1
+        width: 35
+        height: 48
+      alignment: 9
+      pivot: {x: 0.50950754, y: 0.4445423}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.832764, y: 22.66197}
+        - {x: -17.832764, y: -10.33803}
+        - {x: -14.832764, y: -21.33803}
+        - {x: 11.167236, y: -21.33803}
+        - {x: 17.167236, y: -11.33803}
+        - {x: 17.167236, y: 17.66197}
+        - {x: 11.167236, y: 22.66197}
+    - name: jumpRight_11
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 1
+        width: 35
+        height: 48
+      alignment: 9
+      pivot: {x: 0.50950754, y: 0.4584067}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.832764, y: 21.996479}
+        - {x: -17.832764, y: 20.996479}
+        - {x: -17.832764, y: -1.003521}
+        - {x: -12.832764, y: -22.003521}
+        - {x: 12.167236, y: -22.003521}
+        - {x: 17.167236, y: -12.003521}
+        - {x: 17.167236, y: 15.996479}
+        - {x: 9.167236, y: 21.996479}
+    - name: jumpRight_12
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 1
+        width: 30
+        height: 48
+      alignment: 9
+      pivot: {x: 0.42236125, y: 0.44996738}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: jumpRight_13
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 1
+        width: 30
+        height: 48
+      alignment: 9
+      pivot: {x: 0.42236024, y: 0.45147446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: jumpRight_14
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 1
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 23}
+        - {x: -15.5, y: 23}
+        - {x: -16.5, y: 22}
+        - {x: -16.5, y: -23}
+        - {x: -15.5, y: -24}
+        - {x: 16.5, y: -24}
+        - {x: 16.5, y: 12}
+        - {x: 13.5, y: 16}
+    - name: jumpRight_15
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 1
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 6}
+        - {x: 11, y: 18}
+        - {x: -10, y: 18}
+        - {x: -18, y: 15}
+        - {x: -18, y: -24}
+        - {x: -7, y: -24}
+        - {x: -6, y: -23}
+        - {x: -2, y: -24}
+        - {x: 18, y: -24}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
