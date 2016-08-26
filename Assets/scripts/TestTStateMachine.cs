@@ -43,7 +43,7 @@ public class TestTStateMachine : MonoBehaviour, IntfTStateMachine
     {
         determineState();
 
-        print("State of turret is:" + state.ToString() + "\n");
+        //print("State of turret is:" + state.ToString() + "\n");
     }
 
     private void determineState()
@@ -53,17 +53,24 @@ public class TestTStateMachine : MonoBehaviour, IntfTStateMachine
         {
             if (h > 0)
             {
+                TestTActionMachine am = GameObject.
+                    Find("testTurret").GetComponent<TestTActionMachine>();
+                am.rotateClockwise();
             }
             // Holding Left
             else if (h < 0)
             {
+                TestTActionMachine am = GameObject.
+                    Find("testTurret").GetComponent<TestTActionMachine>();
+                am.rotateCounterClockwise();
             }
         }
         if (Input.GetButton("Fire1"))
         {
-            if( active == false )
+            if (active == false)
             {
                 active = true;
             }
         }
     }
+}
