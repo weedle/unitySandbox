@@ -2,7 +2,9 @@
 using System.Collections;
 using System;
 
-public class TestTActionMachine : MonoBehaviour, IntfTActionMachine {
+public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
+{
+    private Animator anim;
     int countDown = 0;
     string command = "";
     string nextCommand = "";
@@ -17,14 +19,40 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine {
         throw new NotImplementedException();
     }
 
+    private void goInactiveImpl()
+    {
+        if (countDown != 0)
+        {
+            anim.Play("Inactive");
+            countDown--;
+        }
+        else
+        {
+            command = "";
+        }
+    }
+
+    private void goActiveImpl()
+    {
+        if (countDown != 0)
+        {
+            anim.Play("Active");
+            countDown--;
+        }
+        else
+        {
+            command = "";
+        }
+    }
+
     public void goActive()
     {
-        throw new NotImplementedException();
+        nextCommand = "active";
     }
 
     public void goInactive()
     {
-        throw new NotImplementedException();
+        nextCommand = "inactive";
     }
 
     private void rotate(int z)
@@ -50,20 +78,19 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine {
     }
 
     // Use this for initialization
-    void Start () {
-	
-	}
+    void Start ()
+    {
+        anim = GetComponent<Animator>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        print("Next command is: " + nextCommand + "\n");
-
         if ( command == "" )
         {
             command = nextCommand;
             nextCommand = "";
-            countDown = 50;
+            countDown = 20;
         }
 	    switch(command)
         {
@@ -72,6 +99,12 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine {
                 break;
             case "rccw":
                 rotate(1);
+                break;
+            case "active":
+                goActiveImpl();
+                break;
+            case "inactive":
+                goInactiveImpl();
                 break;
         }
 	}

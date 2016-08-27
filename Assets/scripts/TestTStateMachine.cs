@@ -69,7 +69,17 @@ public class TestTStateMachine : MonoBehaviour, IntfTStateMachine
         {
             if (active == false)
             {
+                TestTActionMachine am = GameObject.
+                    Find("testTurret").GetComponent<TestTActionMachine>();
+                am.goActive();
                 active = true;
+            }
+            else
+            {
+                TestTActionMachine am = GameObject.
+                    Find("testTurret").GetComponent<TestTActionMachine>();
+                am.goInactive();
+                active = false;
             }
         }
     }

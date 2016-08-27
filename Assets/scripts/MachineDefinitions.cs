@@ -26,8 +26,21 @@ public class MachineDefinitions {
     // I'm thinking one possible behaviour for turrets should be to shoot periodically
     // at enemies in range, but increase firing priority if an enemy enters close range
     // Perhaps firing rate could increase heat, so a turret could potentially get overwhelmed
+    // Not all state types will be used for all turrets
     public enum TState
     {
-        Inactive, Aiming, Firing, Cooling
+        Inactive, Searching, Aiming, Firing, Cooling, Querying
+    }
+
+    // General rules for interactions between Factions
+    // Player and PlayerAffil will target Enemy and Rogue
+    // Enemy will target Player and PlayerAffil
+    // Rogue will fire on all targets except possibly other Rogues
+    // Indep will fire on no targets unless fired upon
+    // Relationships are entity-dependent, and will be dynamically
+    // assigned during gameplay
+    public enum Faction
+    {
+        Player, PlayerAffil, Enemy, Rogue, Indep
     }
 }

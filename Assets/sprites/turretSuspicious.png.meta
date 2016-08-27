@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 3faf109f424628a44be7d01ea575cf75
-timeCreated: 1472277953
+guid: a6f06bdb8c9c93844b2b2325dbca700c
+timeCreated: 1472277838
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: turretActive_0
-    21300002: turretActive_1
-    21300004: turretActive_2
-    21300006: turretActive_3
-    21300008: turretActive_4
-    21300010: turretActive_5
+    21300000: turretSuspicious_0
+    21300002: turretSuspicious_1
+    21300004: turretSuspicious_2
+    21300006: turretSuspicious_3
+    21300008: turretSuspicious_4
+    21300010: turretSuspicious_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -56,7 +56,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: turretActive_0
+    - name: turretSuspicious_0
       rect:
         serializedVersion: 2
         x: 0
@@ -64,10 +64,10 @@ TextureImporter:
         width: 41
         height: 30
       alignment: 9
-      pivot: {x: 0.63439715, y: 0.49999997}
+      pivot: {x: 0.6325125, y: 0.5000002}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: turretActive_1
+    - name: turretSuspicious_1
       rect:
         serializedVersion: 2
         x: 45
@@ -75,10 +75,10 @@ TextureImporter:
         width: 41
         height: 30
       alignment: 9
-      pivot: {x: 0.6337874, y: 0.5009281}
+      pivot: {x: 0.6335146, y: 0.50188124}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: turretActive_2
+    - name: turretSuspicious_2
       rect:
         serializedVersion: 2
         x: 90
@@ -86,10 +86,10 @@ TextureImporter:
         width: 41
         height: 30
       alignment: 9
-      pivot: {x: 0.6344666, y: 0.49907187}
+      pivot: {x: 0.63489103, y: 0.50000006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: turretActive_3
+    - name: turretSuspicious_3
       rect:
         serializedVersion: 2
         x: 135
@@ -97,10 +97,10 @@ TextureImporter:
         width: 41
         height: 30
       alignment: 9
-      pivot: {x: 0.63446677, y: 0.5}
+      pivot: {x: 0.63213813, y: 0.5018812}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: turretActive_4
+    - name: turretSuspicious_4
       rect:
         serializedVersion: 2
         x: 180
@@ -108,10 +108,10 @@ TextureImporter:
         width: 41
         height: 30
       alignment: 9
-      pivot: {x: 0.63446677, y: 0.50185627}
+      pivot: {x: 0.63489103, y: 0.50000006}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-    - name: turretActive_5
+    - name: turretSuspicious_5
       rect:
         serializedVersion: 2
         x: 225
@@ -119,7 +119,7 @@ TextureImporter:
         width: 41
         height: 30
       alignment: 9
-      pivot: {x: 0.63446677, y: 0.5}
+      pivot: {x: 0.6362673, y: 0.5018812}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     outline: []
