@@ -5,9 +5,13 @@ using System;
 public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
 {
     private Animator anim;
-    int countDown = 0;
-    string command = "";
+    int FRAMESKIPCONST = 30;
+    int frameskip;
+    // cooldown until action can be performed
+    int cooldown = 0;
+    string command = "inactive";
     string nextCommand = "";
+    bool active = false;
 
     public void findTarget()
     {
@@ -16,83 +20,81 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
 
     public void fireTurret()
     {
-        throw new NotImplementedException();
+        if (active)
+            print("firing");
     }
 
     private void goInactiveImpl()
     {
-        if (countDown != 0)
-        {
-            anim.Play("Inactive");
-            countDown--;
-        }
-        else
-        {
-            command = "";
-        }
+        anim.Play("Inactive");
+        active = false;
+        command = "";
     }
 
     private void goActiveImpl()
     {
-        if (countDown != 0)
-        {
-            anim.Play("Active");
-            countDown--;
-        }
-        else
-        {
-            command = "";
-        }
+        anim.Play("Active");
+        active = true;
+        command = "";
     }
 
     public void goActive()
     {
-        nextCommand = "active";
+        if( !active && frameskip <= 0 )
+            nextCommand = "active";
     }
 
     public void goInactive()
     {
-        nextCommand = "inactive";
+        if ( active && frameskip <= 0 )
+            nextCommand = "inactive";
+    }
+
+    public void toggleActive()
+    {
+
     }
 
     private void rotate(int z)
     {
-        if (countDown != 0)
-        {
-            transform.Rotate(new Vector3(0, 0, z));
-            countDown--;
-        } else
-        {
-            command = "";
-        }
+        transform.Rotate(new Vector3(0, 0, z));
+        command = "";
     }
 
     public void rotateCounterClockwise()
     {
-        nextCommand = "rccw";
+        if( active )
+            nextCommand = "rccw";
     }
 
     public void rotateClockwise()
     {
-        nextCommand = "rcw";
+        if ( active )
+            nextCommand = "rcw";
+    }
+
+    public bool getActive()
+    {
+        return active;
     }
 
     // Use this for initialization
     void Start ()
     {
         anim = GetComponent<Animator>();
+        frameskip = FRAMESKIPCONST;
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-        if ( command == "" )
+        print(frameskip + " : " + active + " : " + frameskip + " : " + nextCommand);
+        if( command == "" )
         {
             command = nextCommand;
             nextCommand = "";
-            countDown = 20;
         }
-	    switch(command)
+        switch (command)
         {
             case "rcw":
                 rotate(-1);
@@ -100,12 +102,21 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
             case "rccw":
                 rotate(1);
                 break;
+            case "fire":
+                fireTurret();
+                break;
             case "active":
                 goActiveImpl();
+                frameskip = FRAMESKIPCONST;
                 break;
             case "inactive":
                 goInactiveImpl();
+                frameskip = FRAMESKIPCONST;
+                break;
+            default:
                 break;
         }
-	}
+        if( frameskip >= 0 )
+            frameskip--;
+    }
 }

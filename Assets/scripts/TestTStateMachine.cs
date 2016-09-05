@@ -4,10 +4,11 @@ using System;
 
 public class TestTStateMachine : MonoBehaviour, IntfTStateMachine
 {
+    public IntfTActionMachine turret;
+    private bool active;
     private double currAngle;
     private MachineDefinitions.TState prevState;
     private MachineDefinitions.TState state;
-    bool active;
 
     public double getDirection()
     {
@@ -30,7 +31,8 @@ public class TestTStateMachine : MonoBehaviour, IntfTStateMachine
         currAngle = 0;
         prevState = MachineDefinitions.TState.Cooling;
         state = MachineDefinitions.TState.Inactive;
-        active = false;
+        turret = GameObject.
+                    Find("testTurret").GetComponent<TestTActionMachine>();
     }
 
     // Update is called once per frame
@@ -53,34 +55,28 @@ public class TestTStateMachine : MonoBehaviour, IntfTStateMachine
         {
             if (h > 0)
             {
-                TestTActionMachine am = GameObject.
-                    Find("testTurret").GetComponent<TestTActionMachine>();
-                am.rotateClockwise();
+                turret.rotateClockwise();
             }
             // Holding Left
             else if (h < 0)
             {
-                TestTActionMachine am = GameObject.
-                    Find("testTurret").GetComponent<TestTActionMachine>();
-                am.rotateCounterClockwise();
+                turret.rotateCounterClockwise();
             }
         }
         if (Input.GetButton("Fire1"))
         {
-            if (active == false)
+            if ( turret.getActive() == false )
             {
-                TestTActionMachine am = GameObject.
-                    Find("testTurret").GetComponent<TestTActionMachine>();
-                am.goActive();
-                active = true;
+                turret.goActive();
             }
             else
             {
-                TestTActionMachine am = GameObject.
-                    Find("testTurret").GetComponent<TestTActionMachine>();
-                am.goInactive();
-                active = false;
+                turret.goInactive();
             }
+        }
+        if (Input.GetButton("Fire2"))
+        {
+            turret.fireTurret();
         }
     }
 }

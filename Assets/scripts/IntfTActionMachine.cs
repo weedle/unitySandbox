@@ -21,5 +21,9 @@ public interface IntfTActionMachine {
 
     void goActive();
 
+    void toggleActive();
+
     void findTarget();
+
+    bool getActive();
 }
