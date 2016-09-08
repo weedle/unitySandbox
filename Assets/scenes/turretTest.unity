@@ -96,7 +96,7 @@ GameObject:
   - 212: {fileID: 127179026}
   - 95: {fileID: 127179029}
   - 114: {fileID: 127179028}
-  - 54: {fileID: 127179030}
+  - 61: {fileID: 127179030}
   m_Layer: 0
   m_Name: testTurret
   m_TagString: Untagged
@@ -175,21 +175,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!54 &127179030
-Rigidbody:
+--- !u!61 &127179030
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 127179025}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.05533064, y: 0.0003373921}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Size: {x: 0.41000003, y: 0.3}
 --- !u!1001 &367074857
 Prefab:
   m_ObjectHideFlags: 0
@@ -394,7 +393,7 @@ GameObject:
   - 212: {fileID: 1337153472}
   - 95: {fileID: 1337153471}
   - 114: {fileID: 1337153470}
-  - 54: {fileID: 1337153474}
+  - 61: {fileID: 1337153474}
   m_Layer: 0
   m_Name: testTurret3
   m_TagString: Untagged
@@ -413,7 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5fd995894aa4fa478f16006f85c00b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 5408760, guid: 82bbf196edbf5894aa4a6230e855a81f, type: 2}
 --- !u!95 &1337153471
 Animator:
   serializedVersion: 3
@@ -473,21 +472,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
---- !u!54 &1337153474
-Rigidbody:
+--- !u!61 &1337153474
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1337153469}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.05533064, y: 0.0003373921}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Size: {x: 0.41000003, y: 0.3}
 --- !u!1 &1575130024
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +568,7 @@ GameObject:
   - 212: {fileID: 2005787642}
   - 95: {fileID: 2005787641}
   - 114: {fileID: 2005787640}
-  - 54: {fileID: 2005787644}
+  - 61: {fileID: 2005787644}
   m_Layer: 0
   m_Name: testTurret2
   m_TagString: Untagged
@@ -589,7 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5fd995894aa4fa478f16006f85c00b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 5408760, guid: 82bbf196edbf5894aa4a6230e855a81f, type: 2}
 --- !u!95 &2005787641
 Animator:
   serializedVersion: 3
@@ -649,18 +647,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
---- !u!54 &2005787644
-Rigidbody:
+--- !u!61 &2005787644
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2005787639}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.05533064, y: 0.0003373921}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Size: {x: 0.41000003, y: 0.3}
