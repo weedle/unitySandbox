@@ -127,4 +127,12 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
         if( frameskip >= 0 )
             frameskip--;
     }
+
+    public void OnMouseDown()
+    {
+        IntfTStateMachine core = GameObject.
+                    Find("GameCore").GetComponent<TestTStateMachine>();
+        core.setTurret(this.name);
+
+    }
 }

@@ -32,6 +32,12 @@ public class TestTStateMachine : MonoBehaviour, IntfTStateMachine
         currAngle = 0;
         prevState = MachineDefinitions.TState.Cooling;
         state = MachineDefinitions.TState.Inactive;
+        setTurret(turretName);
+    }
+
+
+    public void setTurret(String turretName)
+    {
         turret = GameObject.
                     Find(turretName).GetComponent<TestTActionMachine>();
     }

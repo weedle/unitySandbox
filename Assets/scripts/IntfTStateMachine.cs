@@ -16,4 +16,6 @@ public interface IntfTStateMachine {
 
     // Return the current direction the turret is pointing in
     double getDirection();
+
+    void setTurret(string name);
 }
