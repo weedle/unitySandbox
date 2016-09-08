@@ -4,7 +4,8 @@ using System;
 
 public class TestTStateMachine : MonoBehaviour, IntfTStateMachine
 {
-    public IntfTActionMachine turret;
+    private IntfTActionMachine turret;
+    public String turretName;
     private bool active;
     private double currAngle;
     private MachineDefinitions.TState prevState;
@@ -32,7 +33,7 @@ public class TestTStateMachine : MonoBehaviour, IntfTStateMachine
         prevState = MachineDefinitions.TState.Cooling;
         state = MachineDefinitions.TState.Inactive;
         turret = GameObject.
-                    Find("testTurret").GetComponent<TestTActionMachine>();
+                    Find(turretName).GetComponent<TestTActionMachine>();
     }
 
     // Update is called once per frame

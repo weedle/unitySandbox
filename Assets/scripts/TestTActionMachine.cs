@@ -12,6 +12,7 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
     string command = "inactive";
     string nextCommand = "";
     bool active = false;
+    public Rigidbody projectile;
 
     public void findTarget()
     {
@@ -21,7 +22,14 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
     public void fireTurret()
     {
         if (active)
-            print("firing");
+        {
+            Vector3 vec;
+            Rigidbody proj;
+            vec = new Vector3((float)-0.75, 0, 0);
+            vec = transform.rotation * vec;
+            proj = (Rigidbody)Instantiate(projectile, new Vector3(transform.position.x, transform.position.y) + vec, Quaternion.Euler(0, 0, 0));
+            proj.velocity = new Vector3(4 * vec.x, 4 * vec.y, 0);
+        }
     }
 
     private void goInactiveImpl()
@@ -88,7 +96,7 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
     // Update is called once per frame
     void Update()
     {
-        print(frameskip + " : " + active + " : " + frameskip + " : " + nextCommand);
+        //print(frameskip + " : " + active + " : " + frameskip + " : " + nextCommand);
         if( command == "" )
         {
             command = nextCommand;

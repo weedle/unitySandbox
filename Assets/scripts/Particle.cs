@@ -17,6 +17,5 @@ public class Particle : MonoBehaviour {
         {
             lifetime--;
         }
-        print(lifetime);
 	}
 }
