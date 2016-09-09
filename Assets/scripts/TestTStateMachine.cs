@@ -38,8 +38,7 @@ public class TestTStateMachine : MonoBehaviour, IntfTStateMachine
 
     public void setTurret(String turretName)
     {
-        turret = GameObject.
-                    Find(turretName).GetComponent<TestTActionMachine>();
+        turret = gameObject.GetComponent<TestTActionMachine>();
     }
 
     // Update is called once per frame

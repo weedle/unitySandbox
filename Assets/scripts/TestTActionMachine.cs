@@ -6,6 +6,7 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
 {
     private Animator anim;
     int FRAMESKIPCONST = 30;
+    int FIRINGCOOLDOWN = 5;
     int frameskip;
     // cooldown until action can be performed
     int cooldown = 0;
@@ -21,7 +22,7 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
 
     public void fireTurret()
     {
-        if (active)
+        if (active && cooldown <= 0)
         {
             Vector3 vec;
             Rigidbody proj;
@@ -29,7 +30,10 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
             vec = transform.rotation * vec;
             proj = (Rigidbody)Instantiate(projectile, new Vector3(transform.position.x, transform.position.y) + vec, Quaternion.Euler(0, 0, 0));
             proj.velocity = new Vector3(4 * vec.x, 4 * vec.y, 0);
+            cooldown = FIRINGCOOLDOWN;
         }
+
+        if (cooldown>0) cooldown--;
     }
 
     private void goInactiveImpl()
@@ -130,9 +134,14 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
 
     public void OnMouseDown()
     {
-        IntfTStateMachine core = GameObject.
-                    Find("GameCore").GetComponent<TestTStateMachine>();
-        core.setTurret(this.name);
-
+        if (!gameObject.GetComponent<TestTStateMachine>())
+        {
+            IntfTStateMachine core = gameObject.AddComponent<TestTStateMachine>();
+            core.setTurret(this.name);
+        } else
+        {
+            TestTStateMachine core = gameObject.GetComponent<TestTStateMachine>();
+            DestroyObject(core);
+        }
     }
 }
