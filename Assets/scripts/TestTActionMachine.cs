@@ -7,6 +7,7 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
     private Animator anim;
     int FRAMESKIPCONST = 30;
     int FIRINGCOOLDOWN = 5;
+    int ROTATIONAMOUNT = 1;
     int frameskip;
     // cooldown until action can be performed
     int cooldown = 0;
@@ -109,10 +110,10 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
         switch (command)
         {
             case "rcw":
-                rotate(-1);
+                rotate(-ROTATIONAMOUNT);
                 break;
             case "rccw":
-                rotate(1);
+                rotate(ROTATIONAMOUNT);
                 break;
             case "fire":
                 fireTurret();
@@ -134,14 +135,35 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
 
     public void OnMouseDown()
     {
-        if (!gameObject.GetComponent<TestTStateMachine>())
+        if (this.name != "testTurret2")
         {
-            IntfTStateMachine core = gameObject.AddComponent<TestTStateMachine>();
-            core.setTurret(this.name);
+            if (!gameObject.GetComponent<TestTStateMachine>())
+            {
+                IntfTStateMachine core = gameObject.AddComponent<TestTStateMachine>();
+                core.setTurret(this.name);
+            }
+            else
+            {
+                TestTStateMachine core = gameObject.GetComponent<TestTStateMachine>();
+                DestroyObject(core);
+            }
         } else
         {
-            TestTStateMachine core = gameObject.GetComponent<TestTStateMachine>();
-            DestroyObject(core);
+            if (!gameObject.GetComponent<TestTStateMachine>())
+            {
+                IntfTStateMachine core = gameObject.AddComponent<TestAITStateMachine>();
+                core.setTurret(this.name);
+            }
+            else
+            {
+                TestAITStateMachine core = gameObject.GetComponent<TestAITStateMachine>();
+                DestroyObject(core);
+            }
         }
+    }
+
+    public void setRotationAmount(int rotation)
+    {
+        ROTATIONAMOUNT = rotation;
     }
 }
