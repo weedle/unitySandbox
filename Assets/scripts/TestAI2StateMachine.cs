@@ -61,7 +61,7 @@ public class TestAI2TStateMachine : MonoBehaviour, IntfTStateMachine
             (Input.GetAxis("Mouse Y") == 0))
         {
             Vector3 v3 = Input.mousePosition;
-            v3.z = 10;
+            v3.z = -Camera.main.transform.position.z;
             v3 = Camera.main.ScreenToWorldPoint(v3);
             v3.x -= transform.position.x;
             v3.y -= transform.position.y;

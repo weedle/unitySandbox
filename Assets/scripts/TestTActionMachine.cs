@@ -151,7 +151,7 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
         }
         else if (this.name == "testTurret3")
         {
-            if (!gameObject.GetComponent<TestTStateMachine>())
+            if (!gameObject.GetComponent<TestAI2TStateMachine>())
             {
                 IntfTStateMachine core = gameObject.AddComponent<TestAI2TStateMachine>();
                 core.setTurret(this.name);
@@ -164,7 +164,7 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
         }
         else
         {
-            if (!gameObject.GetComponent<TestTStateMachine>())
+            if (!gameObject.GetComponent<TestAITStateMachine>())
             {
                 IntfTStateMachine core = gameObject.AddComponent<TestAITStateMachine>();
                 core.setTurret(this.name);
