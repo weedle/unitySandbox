@@ -116,7 +116,8 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
                 rotate(ROTATIONAMOUNT);
                 break;
             case "fire":
-                fireTurret();
+                if(this.name == "testTurret")
+                    fireTurret();
                 break;
             case "active":
                 goActiveImpl();
@@ -135,7 +136,7 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
 
     public void OnMouseDown()
     {
-        if (this.name != "testTurret2")
+        if (this.name == "testTurret")
         {
             if (!gameObject.GetComponent<TestTStateMachine>())
             {
@@ -147,7 +148,21 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
                 TestTStateMachine core = gameObject.GetComponent<TestTStateMachine>();
                 DestroyObject(core);
             }
-        } else
+        }
+        else if (this.name == "testTurret3")
+        {
+            if (!gameObject.GetComponent<TestTStateMachine>())
+            {
+                IntfTStateMachine core = gameObject.AddComponent<TestAI2TStateMachine>();
+                core.setTurret(this.name);
+            }
+            else
+            {
+                TestAI2TStateMachine core = gameObject.GetComponent<TestAI2TStateMachine>();
+                DestroyObject(core);
+            }
+        }
+        else
         {
             if (!gameObject.GetComponent<TestTStateMachine>())
             {

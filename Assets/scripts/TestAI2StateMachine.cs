@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-public class TestAITStateMachine : MonoBehaviour, IntfTStateMachine
+public class TestAI2TStateMachine : MonoBehaviour, IntfTStateMachine
 {
     private IntfTActionMachine turret;
     public String turretName;
@@ -35,7 +35,7 @@ public class TestAITStateMachine : MonoBehaviour, IntfTStateMachine
 
         TestTActionMachine turretBadHack = null;
         turretBadHack = (TestTActionMachine)turret;
-        turretBadHack.setRotationAmount(3);
+        turretBadHack.setRotationAmount(2);
     }
 
 
@@ -43,9 +43,10 @@ public class TestAITStateMachine : MonoBehaviour, IntfTStateMachine
     {
         turret = gameObject.GetComponent<TestTActionMachine>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
     }
 
@@ -56,23 +57,23 @@ public class TestAITStateMachine : MonoBehaviour, IntfTStateMachine
 
     private void determineState()
     {
-        if ((Input.GetAxis("Mouse X") != 0) || 
-            (Input.GetAxis("Mouse Y") != 0))
+        if ((Input.GetAxis("Mouse X") == 0) &&
+            (Input.GetAxis("Mouse Y") == 0))
         {
             Vector3 v3 = Input.mousePosition;
             v3.z = 10;
             v3 = Camera.main.ScreenToWorldPoint(v3);
             v3.x -= transform.position.x;
             v3.y -= transform.position.y;
-            float mouseAngle = (float) Math.Atan2(v3.y, v3.x);
-            mouseAngle += (float) Math.PI;
+            float mouseAngle = (float)Math.Atan2(v3.y, v3.x);
+            mouseAngle += (float)Math.PI;
             //if (angle > Math.PI) angle = 2*(float)Math.PI - angle;
             //print("Angle: " + angle);
-            
+
             Vector3 vec;
             vec = transform.rotation.eulerAngles;
             float turretAngle = vec.z;
-            turretAngle = turretAngle * (float) Math.PI / 180;
+            turretAngle = turretAngle * (float)Math.PI / 180;
             //if (angle2 > Math.PI) angle2 = 2 * (float)Math.PI - angle2;
             //print("Angle: " + angle2);
             float angleDiff = mouseAngle - turretAngle;
@@ -80,31 +81,9 @@ public class TestAITStateMachine : MonoBehaviour, IntfTStateMachine
             //print(angleDiff);
             if (Math.Abs(angleDiff) > 0.1)
             {
-                if (turretAngle > Math.PI)
-                {
-                    if ((mouseAngle > turretAngle) ||
-                       (mouseAngle < turretAngle - Math.PI))
-                    {
-                        turret.rotateCounterClockwise();
-                    }
-                    else
-                    {
-                        turret.rotateClockwise();
-                    }
-                }
-                else
-                {
-                    if ((mouseAngle > turretAngle) &&
-                       (mouseAngle < turretAngle + Math.PI))
-                    {
-                        turret.rotateCounterClockwise();
-                    }
-                    else
-                    {
-                        turret.rotateClockwise();
-                    }
-                }
-            } else
+                turret.rotateClockwise();
+            }
+            else
             {
                 turret.fireTurret();
             }
