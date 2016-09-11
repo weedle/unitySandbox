@@ -6,7 +6,7 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
 {
     private Animator anim;
     int FRAMESKIPCONST = 30;
-    int FIRINGCOOLDOWN = 5;
+    public int FIRINGCOOLDOWN;
     int ROTATIONAMOUNT = 1;
     int frameskip;
     // cooldown until action can be performed
@@ -15,6 +15,7 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
     string nextCommand = "";
     bool active = false;
     public Rigidbody projectile;
+    public int PROJECTILESPEED;
 
     public void findTarget()
     {
@@ -30,7 +31,7 @@ public class TestTActionMachine : MonoBehaviour, IntfTActionMachine
             vec = new Vector3((float)-0.75, 0, 0);
             vec = transform.rotation * vec;
             proj = (Rigidbody)Instantiate(projectile, new Vector3(transform.position.x, transform.position.y) + vec, Quaternion.Euler(0, 0, 0));
-            proj.velocity = new Vector3(4 * vec.x, 4 * vec.y, 0);
+            proj.velocity = new Vector3(PROJECTILESPEED * vec.x, PROJECTILESPEED * vec.y, 0);
             cooldown = FIRINGCOOLDOWN;
         }
 

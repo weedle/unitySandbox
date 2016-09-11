@@ -68,6 +68,10 @@
     <Compile Include="Assets\scripts\IntfTStateMachine.cs" />
     <Compile Include="Assets\scripts\MachineDefinitions.cs" />
     <Compile Include="Assets\scripts\Particle.cs" />
+    <Compile Include="Assets\scripts\Particle1.cs" />
+    <Compile Include="Assets\scripts\Particle2.cs" />
+    <Compile Include="Assets\scripts\Particle3.cs" />
+    <Compile Include="Assets\scripts\ParticleAbstract.cs" />
     <Compile Include="Assets\scripts\TestAI2StateMachine.cs" />
     <Compile Include="Assets\scripts\TestAITStateMachine.cs" />
     <Compile Include="Assets\scripts\TestTActionMachine.cs" />

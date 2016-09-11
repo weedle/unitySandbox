@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Particle : MonoBehaviour {
-    int lifetime = 50;
+public abstract class Particle : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -10,12 +9,5 @@ public class Particle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if( lifetime <= 0 )
-        {
-            Destroy(gameObject);
-        } else
-        {
-            lifetime--;
-        }
 	}
 }

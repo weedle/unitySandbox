@@ -60,9 +60,7 @@ public class TestAI2TStateMachine : MonoBehaviour, IntfTStateMachine
         if ((Input.GetAxis("Mouse X") == 0) &&
             (Input.GetAxis("Mouse Y") == 0))
         {
-            Vector3 v3 = Input.mousePosition;
-            v3.z = -Camera.main.transform.position.z;
-            v3 = Camera.main.ScreenToWorldPoint(v3);
+            Vector3 v3 = MachineDefinitions.getCursor();
             v3.x -= transform.position.x;
             v3.y -= transform.position.y;
             float mouseAngle = (float)Math.Atan2(v3.y, v3.x);
@@ -77,7 +75,7 @@ public class TestAI2TStateMachine : MonoBehaviour, IntfTStateMachine
             //if (angle2 > Math.PI) angle2 = 2 * (float)Math.PI - angle2;
             //print("Angle: " + angle2);
             float angleDiff = mouseAngle - turretAngle;
-            print("a1: " + mouseAngle + " a2: " + turretAngle + " ad: " + angleDiff);
+            //print("a1: " + mouseAngle + " a2: " + turretAngle + " ad: " + angleDiff);
             //print(angleDiff);
             if (Math.Abs(angleDiff) > 0.1)
             {

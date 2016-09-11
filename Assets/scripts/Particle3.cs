@@ -1,0 +1,32 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Particle3 : ParticleAbstract
+{
+    int lifetime = 20;
+    public Rigidbody rb;
+
+    // Use this for initialization
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        Vector3 newVel = rb.velocity;
+        newVel.x += Random.Range(8, 10);
+        newVel.y += Random.Range(8, 10);
+        rb.velocity.Set(newVel.x, newVel.y, newVel.z);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.Rotate(new Vector3(0, 0, 4));
+        if (lifetime <= 0)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            lifetime--;
+        }
+    }
+}

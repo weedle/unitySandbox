@@ -157,7 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5fd995894aa4fa478f16006f85c00b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FIRINGCOOLDOWN: 5
   projectile: {fileID: 5408760, guid: 82bbf196edbf5894aa4a6230e855a81f, type: 2}
+  PROJECTILESPEED: 4
 --- !u!95 &127179029
 Animator:
   serializedVersion: 3
@@ -366,7 +368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5fd995894aa4fa478f16006f85c00b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 5408760, guid: 82bbf196edbf5894aa4a6230e855a81f, type: 2}
+  FIRINGCOOLDOWN: 3
+  projectile: {fileID: 5497490, guid: 3a60eb233aa03c44990db5a75562d3dc, type: 2}
+  PROJECTILESPEED: 15
 --- !u!95 &1337153471
 Animator:
   serializedVersion: 3
@@ -528,7 +532,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5fd995894aa4fa478f16006f85c00b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 5408760, guid: 82bbf196edbf5894aa4a6230e855a81f, type: 2}
+  FIRINGCOOLDOWN: 10
+  projectile: {fileID: 5487170, guid: fe9f6b1c44d32d246a3fc04e7a8f46de, type: 2}
+  PROJECTILESPEED: 6
 --- !u!95 &2005787641
 Animator:
   serializedVersion: 3
