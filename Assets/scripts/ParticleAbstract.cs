@@ -2,7 +2,7 @@
 using System.Collections;
 
 public abstract class ParticleAbstract : MonoBehaviour {
-    int lifetime = 10;
+    public int lifetime;
 
 	// Use this for initialization
 	void Start () {

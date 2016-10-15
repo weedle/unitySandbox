@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Particle2 : ParticleAbstract
 {
-    int lifetime = 90;
     float spinrate = 4;
 
     // Use this for initialization

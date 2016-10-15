@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Particle3 : ParticleAbstract
 {
-    int lifetime = 20;
     public Rigidbody rb;
 
     // Use this for initialization

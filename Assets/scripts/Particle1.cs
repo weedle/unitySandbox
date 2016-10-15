@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Particle1 : ParticleAbstract {
-    int lifetime = 60;
 
 	// Use this for initialization
 	void Start () {
