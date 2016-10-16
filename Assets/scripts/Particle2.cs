@@ -22,14 +22,14 @@ public class Particle2 : ParticleAbstract
         {
             lifetime--;
         }
-
+        /*
         if(lifetime % 5 == 0)
         {
             //print(distBetween(transform.position, MachineDefinitions.getCursor()));
             float dist = distBetween(transform.position, MachineDefinitions.getCursor());
             if (dist == 0) dist = 0.01F;
             spinrate = 10/dist;
-        }
+        } */
 
     }
 
