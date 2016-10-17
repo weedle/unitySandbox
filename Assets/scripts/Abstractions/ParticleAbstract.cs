@@ -3,9 +3,10 @@ using System.Collections;
 
 public abstract class ParticleAbstract : MonoBehaviour {
     public int lifetime;
+    public ShipDefinitions.Faction faction;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	}
 	
 	// Update is called once per frame
@@ -18,4 +19,9 @@ public abstract class ParticleAbstract : MonoBehaviour {
             lifetime--;
         }
 	}
+
+    public void setFaction(ShipDefinitions.Faction faction)
+    {
+        this.faction = faction;
+    }
 }

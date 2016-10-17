@@ -63,18 +63,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\explodeScript.cs" />
     <Compile Include="Assets\scripts\Abstractions\IntfTActionMachine.cs" />
     <Compile Include="Assets\scripts\Abstractions\IntfTStateMachine.cs" />
+    <Compile Include="Assets\scripts\Abstractions\ParticleAbstract.cs" />
+    <Compile Include="Assets\scripts\Implementations\Particle1.cs" />
+    <Compile Include="Assets\scripts\Implementations\Particle2.cs" />
+    <Compile Include="Assets\scripts\Implementations\Particle3.cs" />
     <Compile Include="Assets\scripts\Implementations\TestAI2StateMachine.cs" />
     <Compile Include="Assets\scripts\Implementations\TestAITStateMachine.cs" />
     <Compile Include="Assets\scripts\Implementations\TestTActionMachine.cs" />
     <Compile Include="Assets\scripts\Implementations\TestTStateMachine.cs" />
     <Compile Include="Assets\scripts\MachineDefinitions.cs" />
-    <Compile Include="Assets\scripts\Particle.cs" />
-    <Compile Include="Assets\scripts\Particle1.cs" />
-    <Compile Include="Assets\scripts\Particle2.cs" />
-    <Compile Include="Assets\scripts\Particle3.cs" />
-    <Compile Include="Assets\scripts\ParticleAbstract.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
     <Compile Include="Assets\scripts\TopDown\Implementations\ImplEnemyShipController.cs" />
     <Compile Include="Assets\scripts\TopDown\Implementations\ImplMainShip.cs" />
@@ -83,6 +83,7 @@
     <Compile Include="Assets\scripts\TopDown\Interfaces\IntfShipController.cs" />
     <Compile Include="Assets\scripts\TopDown\ShipDefinitions.cs" />
     <Compile Include="Assets\scripts\TopDown\shipScript.cs" />
+    <Compile Include="Assets\spawner.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

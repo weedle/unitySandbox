@@ -47,9 +47,19 @@ public class Particle2 : ParticleAbstract
         a.x = Mathf.Sqrt(a.x);
 
         return a.x;
+    }
 
-
-
-
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if ((col.gameObject.tag == "Enemy" &&
+                ( faction == ShipDefinitions.Faction.Player || 
+                faction == ShipDefinitions.Faction.PlayerAffil)) ||
+             (col.gameObject.tag == "Player" ||
+              col.gameObject.tag == "PlayerAffil") && 
+                faction == ShipDefinitions.Faction.Enemy)
+        {
+            col.gameObject.GetComponent
+                <IntfShipController>().isHit();
+        }
     }
 }

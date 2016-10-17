@@ -5,6 +5,9 @@ using System;
 public class ImplMainShipController : MonoBehaviour, IntfShipController
 {
     public IntfShip ship;
+    public float healthPoints = 100;
+    public ShipDefinitions.Faction faction = ShipDefinitions.Faction.Player;
+
 
     public void getNextState()
     {
@@ -28,5 +31,18 @@ public class ImplMainShipController : MonoBehaviour, IntfShipController
 	// Update is called once per frame
 	void Update () {
         getNextState();
+    }
+
+    public void isHit()
+    {
+        healthPoints--;
+        print(healthPoints);
+        if (healthPoints == 0)
+            Destroy(gameObject);
+    }
+
+    public ShipDefinitions.Faction getFaction()
+    {
+        return faction;
     }
 }

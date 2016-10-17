@@ -7,6 +7,7 @@ TagManager:
   - Player
   - Ally
   - Enemy
+  - PlayerAffil
   layers:
   - Default
   - TransparentFX
