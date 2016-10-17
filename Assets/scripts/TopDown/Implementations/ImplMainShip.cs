@@ -3,14 +3,23 @@ using System.Collections;
 
 public class ImplMainShip : MonoBehaviour, IntfShip {
     public Rigidbody2D projectile;
-    private float PROJECTILESPEED = 5;
+    private float PROJECTILESPEED = 15;
     public int ammoMax = 10;
     public int ammunition = 10;
     public int ammoCooldown = 50;
     public int counter = 0;
+    private int rotationSpeed = 5;
+    private float moveSpeed = 1.5f;
 
     // Use this for initialization
     void Start () {
+        PROJECTILESPEED += Random.Range(-4, 4);
+        rotationSpeed += Random.Range(-2, 2);
+        ammoMax += Random.Range(-4, 4);
+        ammoCooldown += Random.Range(-20, 20);
+        moveSpeed += Random.Range(-0.3f, 0.3f);
+        Camera camera = gameObject.GetComponent<Camera>();
+        //camera.orthographicSize = 640 / Screen.width * Screen.height / 2;
         projectile.GetComponent<ParticleAbstract>().
             setFaction(gameObject.GetComponent<IntfShipController>().getFaction());
 	}
@@ -29,8 +38,8 @@ public class ImplMainShip : MonoBehaviour, IntfShip {
         }
 
 
-        float xbound = 5f;
-        float ybound = 3.5f;
+        float xbound = 8;//0.8f * Screen.width / 2;
+        float ybound = 5;//0.8f * Screen.height / 2;
         if(transform.position.x < -xbound)
             transform.position = 
                 new Vector3(xbound, transform.position.y, transform.position.z);
@@ -69,13 +78,13 @@ public class ImplMainShip : MonoBehaviour, IntfShip {
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
         if(vertical != 0)
             rigidbody.velocity = new Vector2(Mathf.Cos(getAngle()), 
-                Mathf.Sin(getAngle())) * 1.5f * (vertical + Mathf.Sign(vertical));
+                Mathf.Sin(getAngle())) * moveSpeed * (vertical + Mathf.Sign(vertical));
     }
 
     public void rotate(float horizontal)
     {
         if(horizontal != 0)
-            transform.Rotate(new Vector3(0, 0, -5 * horizontal));
+            transform.Rotate(new Vector3(0, 0, -1 * rotationSpeed * horizontal));
     }
 
 
@@ -85,7 +94,7 @@ public class ImplMainShip : MonoBehaviour, IntfShip {
         {
             Vector3 vec;
             Rigidbody2D proj;
-            vec = new Vector3(0, (float)0.75, 0);
+            vec = new Vector3(0, (float)0.25, 0);
             vec = transform.rotation * vec;
             proj = (Rigidbody2D)Instantiate(projectile, new Vector3(transform.position.x, transform.position.y) + vec, Quaternion.Euler(0, 0, 90));
             proj.velocity = new Vector3(PROJECTILESPEED * vec.x, PROJECTILESPEED * vec.y, 0);

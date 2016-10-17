@@ -35,7 +35,7 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
         {
             string[] tags = { "Player", "PlayerAffil" };
             GameObject obj = GetClosestObject(tags);
-            if(obj)
+            if (obj)
                 return obj.transform.position;
         }
         else if(faction == ShipDefinitions.Faction.PlayerAffil)
@@ -72,7 +72,8 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
 
     public void getNextState()
     {
-        Vector3 diff = getTarget() - transform.position;
+        Vector3 target = getTarget();
+        Vector3 diff = target - transform.position;
         if(diff == -transform.position)
         {
             ship.brake();
@@ -94,7 +95,7 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
             ship.rotate(-0.5f);
 
         
-        ship.move(0.5f);
+        ship.move(1);
         if (shipAngle + 2 > targetAngle &&
             shipAngle - 2 < targetAngle)
             ship.fire();
