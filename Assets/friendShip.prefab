@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012526351234}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.031, y: 0.229, z: 0}
+  m_LocalPosition: {x: 1.02, y: -0.26, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -117,8 +117,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c520eec59fde794e91493543ae94a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 50000013958414384, guid: 20516ee281fd65d409cd723590621d49,
+  projectile: {fileID: 50000011160654404, guid: 2788949d2f066cc47bcd12e8b3df264e,
     type: 2}
+  projectileSpeed: 20
+  ammoMax: 10
+  ammunition: 10
+  ammoCooldown: 300
+  counter: 0
 --- !u!212 &212000014085145066
 SpriteRenderer:
   m_ObjectHideFlags: 1

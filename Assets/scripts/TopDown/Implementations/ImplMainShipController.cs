@@ -8,6 +8,11 @@ public class ImplMainShipController : MonoBehaviour, IntfShipController
     public float healthPoints = 100;
     public ShipDefinitions.Faction faction = ShipDefinitions.Faction.Player;
 
+    // does nothing since player targets manually
+    public GameObject getTarget()
+    {
+        return null;
+    }
 
     public void getNextState()
     {

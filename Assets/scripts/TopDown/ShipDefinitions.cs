@@ -32,4 +32,18 @@ public class ShipDefinitions
 
         return v3;
     }
+    
+    public static void DrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.2f, float width = 0.05f)
+    {
+        GameObject myLine = new GameObject();
+        myLine.transform.position = start;
+        myLine.AddComponent<LineRenderer>();
+        LineRenderer lr = myLine.GetComponent<LineRenderer>();
+        lr.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
+        lr.SetColors(color, color);
+        lr.SetWidth(width, width);
+        lr.SetPosition(0, start);
+        lr.SetPosition(1, end);
+        GameObject.Destroy(myLine, duration);
+    }
 }

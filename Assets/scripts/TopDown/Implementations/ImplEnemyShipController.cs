@@ -29,23 +29,23 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
         }
         return closest;
     }
-    public Vector3 getTarget()
+    public GameObject getTarget()
     {
         if(faction == ShipDefinitions.Faction.Enemy)
         {
             string[] tags = { "Player", "PlayerAffil" };
             GameObject obj = GetClosestObject(tags);
             if (obj)
-                return obj.transform.position;
+                return obj;
         }
         else if(faction == ShipDefinitions.Faction.PlayerAffil)
         {
             string[] tags = { "Enemy" };
             GameObject obj = GetClosestObject(tags);
             if (obj)
-                return obj.transform.position;
+                return obj;
         }
-        return new Vector3(0,0,0);
+        return null;
     }
 
     // find quickest path for thing at angle1 to reach angle2
@@ -72,7 +72,9 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
 
     public void getNextState()
     {
-        Vector3 target = getTarget();
+        Vector3 target = Vector3.zero;
+        GameObject obj = getTarget();
+        if(obj) target = obj.transform.position;
         Vector3 diff = target - transform.position;
         if(diff == -transform.position)
         {
@@ -96,8 +98,10 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
 
         
         ship.move(1);
-        if (shipAngle + 2 > targetAngle &&
-            shipAngle - 2 < targetAngle)
+        if ((shipAngle + 2 > targetAngle &&
+            shipAngle - 2 < targetAngle) &&
+                (Vector3.Distance(transform.position,
+                    target) < 2))
             ship.fire();
 
     }
@@ -117,11 +121,12 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
 
     public void isHit()
     {
-        print("F: " + faction.ToString() + " " + healthPoints);
         healthPoints--;
         if (healthPoints == 0)
         {
             inactive = true;
+            this.gameObject.GetComponent<SpriteRenderer>().
+                color = Color.white;
             this.gameObject.
                 GetComponent<Animator>().Play("Explode");
         }

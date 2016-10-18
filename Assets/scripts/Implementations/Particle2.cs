@@ -51,11 +51,11 @@ public class Particle2 : ParticleAbstract
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if ((col.gameObject.tag == "Enemy" &&
+        if ((col.CompareTag("Enemy") &&
                 ( faction == ShipDefinitions.Faction.Player || 
                 faction == ShipDefinitions.Faction.PlayerAffil)) ||
-             (col.gameObject.tag == "Player" ||
-              col.gameObject.tag == "PlayerAffil") && 
+             (col.CompareTag("Player") ||
+              col.CompareTag("PlayerAffil")) && 
                 faction == ShipDefinitions.Faction.Enemy)
         {
             col.gameObject.GetComponent
