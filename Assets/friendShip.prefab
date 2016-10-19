@@ -9,22 +9,24 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000012526351234}
+  m_RootGameObject: {fileID: 1000010133440952}
   m_IsPrefabParent: 1
---- !u!1 &1000012526351234
+--- !u!1 &1000010133440952
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000011699357708}
-  - 212: {fileID: 212000014085145066}
-  - 50: {fileID: 50000011495942468}
-  - 114: {fileID: 114000013047522672}
-  - 114: {fileID: 114000012241774088}
-  - 61: {fileID: 61000012565543062}
-  - 95: {fileID: 95000014150081612}
+  - 4: {fileID: 4000011777912124}
+  - 212: {fileID: 212000013515200804}
+  - 50: {fileID: 50000012937370654}
+  - 114: {fileID: 114000013208379572}
+  - 114: {fileID: 114000013881810070}
+  - 61: {fileID: 61000012590692256}
+  - 95: {fileID: 95000011808848920}
+  - 114: {fileID: 114000011237736070}
+  - 114: {fileID: 114000013271915372}
   m_Layer: 0
   m_Name: friendShip
   m_TagString: PlayerAffil
@@ -32,26 +34,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000011699357708
+--- !u!4 &4000011777912124
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012526351234}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.02, y: -0.26, z: 0}
+  m_GameObject: {fileID: 1000010133440952}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.82, y: -0.98, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &50000011495942468
+--- !u!50 &50000012937370654
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012526351234}
+  m_GameObject: {fileID: 1000010133440952}
   m_UseAutoMass: 0
   m_Mass: 3
   m_LinearDrag: 0
@@ -62,12 +64,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61000012565543062
+--- !u!61 &61000012590692256
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012526351234}
+  m_GameObject: {fileID: 1000010133440952}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -76,13 +78,13 @@ BoxCollider2D:
   m_Offset: {x: -0.0034672916, y: 0.01355397}
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2}
---- !u!95 &95000014150081612
+--- !u!95 &95000011808848920
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012526351234}
+  m_GameObject: {fileID: 1000010133440952}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b92da4022dfebe34981c47b884047feb, type: 2}
@@ -93,43 +95,65 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000012241774088
+--- !u!114 &114000011237736070
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012526351234}
+  m_GameObject: {fileID: 1000010133440952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60301e27158b7774c9f131bdebc83eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: da899ac6910a3c743a75593bede287f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 10
-  faction: 1
---- !u!114 &114000013047522672
+  counter: 0
+  projectile: {fileID: 50000010779180126, guid: a409640190844394bab6e4286fd3a576,
+    type: 2}
+  projectileSpeed: 20
+  ammoMax: 15
+  ammunition: 15
+  ammoCooldown: 200
+--- !u!114 &114000013208379572
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012526351234}
+  m_GameObject: {fileID: 1000010133440952}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c520eec59fde794e91493543ae94a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 50000011160654404, guid: 2788949d2f066cc47bcd12e8b3df264e,
-    type: 2}
-  projectileSpeed: 20
-  ammoMax: 10
-  ammunition: 10
-  ammoCooldown: 300
-  counter: 0
---- !u!212 &212000014085145066
+--- !u!114 &114000013271915372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010133440952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a29eeae4cde3a42b3dc6d024e47450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000013881810070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010133440952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60301e27158b7774c9f131bdebc83eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 20
+  faction: 1
+--- !u!212 &212000013515200804
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012526351234}
+  m_GameObject: {fileID: 1000010133440952}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

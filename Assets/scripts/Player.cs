@@ -45,7 +45,6 @@ public class Player : MonoBehaviour {
     // tempState is the state we were in last frame
 
     private State state;
-    private State prevState;
     private State tempState;
 
     // Use this for initialization
@@ -124,10 +123,10 @@ public class Player : MonoBehaviour {
         }
 
         // Here we handle our stateH history, so we know what was going on
-        if( !state.Equals(tempState) )
-        {
-            prevState = tempState;
-        }
+        //if( !state.Equals(tempState) )
+        //{
+        //    prevState = tempState;
+        //}
 
         tempState = state;
     }

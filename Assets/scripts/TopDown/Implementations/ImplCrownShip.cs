@@ -3,37 +3,19 @@ using System.Collections;
 
 public class ImplCrownShip : MonoBehaviour, IntfShip
 {
-    public int ammoMax = 10;
-    public int ammunition = 10;
-    public int ammoCooldown = 200;
-    public int counter = 0;
     private int rotationSpeed = 5;
     private float moveSpeed = 1;
-    public Color color1 = Color.blue;
-    public Color color2 = Color.cyan;
 
     // Use this for initialization
     void Start()
     {
         rotationSpeed += Random.Range(-2, 2);
-        ammoMax += Random.Range(-4, 4);
-        ammoCooldown += Random.Range(-20, 20);
         moveSpeed += Random.Range(-0.3f, 0.3f);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        counter++;
-        if (counter >= ammoCooldown)
-        {
-            if (ammunition < ammoMax)
-            {
-                ammunition = ammoMax;
-                counter = 0;
-            }
-        }
 
         float vertExtent = Camera.main.orthographicSize;
         float horzExtent = vertExtent * Screen.width / Screen.height;
@@ -90,20 +72,7 @@ public class ImplCrownShip : MonoBehaviour, IntfShip
 
     public void fire()
     {
-        Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
-        rigidbody.velocity = Vector3.zero;
-        if (ammunition > 0)
-        {
-            GameObject target = gameObject.
-                GetComponent<IntfShipController>().getTarget();
-            Vector3 firePoint = transform.position;
-            ShipDefinitions.DrawLine(firePoint, target.transform.position, color1, 0.1f);
-            ShipDefinitions.DrawLine(firePoint, target.transform.position, color2, 0.12f);
-            ShipDefinitions.DrawLine(firePoint, target.transform.position, color1, 0.14f);
-            ShipDefinitions.DrawLine(firePoint, target.transform.position, color2, 0.1f);
-            target.GetComponent<IntfShipController>().isHit();
-            ammunition--;
-        }
+        GetComponent<IntfFiringModule>().fire();
     }
 
     public float getProjectileSpeed()

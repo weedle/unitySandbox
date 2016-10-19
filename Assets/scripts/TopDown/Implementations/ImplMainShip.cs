@@ -2,40 +2,19 @@
 using System.Collections;
 
 public class ImplMainShip : MonoBehaviour, IntfShip {
-    public Rigidbody2D projectile;
-    public float projectileSpeed = 20;
-    public int ammoMax = 10;
-    public int ammunition = 10;
-    public int ammoCooldown = 200;
-    public int counter = 0;
     private int rotationSpeed = 5;
     private float moveSpeed = 1;
 
     // Use this for initialization
     void Start () {
-        projectileSpeed += Random.Range(-4, 4);
         rotationSpeed += Random.Range(-2, 2);
-        ammoMax += Random.Range(-4, 4);
-        ammoCooldown += Random.Range(-20, 20);
         moveSpeed += Random.Range(-0.3f, 0.3f);
         //Camera camera = Camera.main;
         //camera.orthographicSize = 640 / Screen.width * Screen.height / 2;
-        projectile.GetComponent<ParticleAbstract>().
-            setFaction(gameObject.GetComponent<IntfShipController>().getFaction());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-        counter++;
-        if(counter >= ammoCooldown)
-        {
-            if (ammunition < ammoMax)
-            {
-                ammunition = ammoMax;
-                counter = 0;
-            }
-        }
 
         float vertExtent = Camera.main.orthographicSize;
         float horzExtent = vertExtent * Screen.width / Screen.height;
@@ -92,20 +71,6 @@ public class ImplMainShip : MonoBehaviour, IntfShip {
 
     public void fire()
     {
-        if (ammunition > 0)
-        {
-            Vector3 vec;
-            Rigidbody2D proj;
-            vec = new Vector3(0, (float)0.25, 0);
-            vec = transform.rotation * vec;
-            proj = (Rigidbody2D)Instantiate(projectile, new Vector3(transform.position.x, transform.position.y) + vec, Quaternion.Euler(0, 0, 90));
-            proj.velocity = new Vector3(projectileSpeed * vec.x, projectileSpeed * vec.y, 0);
-            ammunition--;
-        }
-    }
-
-    public float getProjectileSpeed()
-    {
-        return projectileSpeed;
+        GetComponent<IntfFiringModule>().fire();
     }
 }

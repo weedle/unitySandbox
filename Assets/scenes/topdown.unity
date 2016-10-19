@@ -190,11 +190,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3895ddb86a8593488b47a7f8ea83042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1000014146967850, guid: 2ab852265c5c17a4f824f6260bd34f11, type: 2}
-  ally: {fileID: 1000012526351234, guid: b1899ac85fd604a46857008323d02996, type: 2}
+  enemy: {fileID: 1000010314460406, guid: 8020cee259054fd4d963c9021b8df755, type: 2}
+  ally: {fileID: 1000010133440952, guid: f91ed827c5328ea4faf83644e76abc1b, type: 2}
   player: {fileID: 1000012959705226, guid: 212e431ed8060d246b244bfe784b320b, type: 2}
-  crownEnemy: {fileID: 1000010747385302, guid: bad1efbc6cb51d24d9b565cd19f0b189, type: 2}
-  crownAlly: {fileID: 1000010413719172, guid: 2bf4d6984baae784da97dc1b561244d9, type: 2}
+  enemyCrown: {fileID: 1000010303998680, guid: 81553f0ae015ff94a93f9a4e87597a1a, type: 2}
+  allyCrown: {fileID: 1000012454886312, guid: 021f40f7ca224cb4fa30f680ac0eca63, type: 2}
 --- !u!1 &2074307527
 GameObject:
   m_ObjectHideFlags: 0

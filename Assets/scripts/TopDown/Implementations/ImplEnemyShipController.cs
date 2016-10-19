@@ -9,45 +9,6 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
     Boolean inactive = false;
     public ShipDefinitions.Faction faction = ShipDefinitions.Faction.Enemy;
 
-    private GameObject GetClosestObject(String[] tags)
-    {
-        GameObject closest = null;
-        foreach (String tag in tags)
-        {
-            GameObject[] list = GameObject.FindGameObjectsWithTag(tag);
-
-            foreach (GameObject obj in list)
-            {
-                if (closest == null) closest = obj;
-
-                if (Vector3.Distance(transform.position, obj.transform.position) <=
-                    Vector3.Distance(transform.position, closest.transform.position))
-                {
-                    closest = obj;
-                }
-            }
-        }
-        return closest;
-    }
-    public GameObject getTarget()
-    {
-        if(faction == ShipDefinitions.Faction.Enemy)
-        {
-            string[] tags = { "Player", "PlayerAffil" };
-            GameObject obj = GetClosestObject(tags);
-            if (obj)
-                return obj;
-        }
-        else if(faction == ShipDefinitions.Faction.PlayerAffil)
-        {
-            string[] tags = { "Enemy" };
-            GameObject obj = GetClosestObject(tags);
-            if (obj)
-                return obj;
-        }
-        return null;
-    }
-
     // find quickest path for thing at angle1 to reach angle2
     // if true, turn clockwise, otherwise turn counterclockwise
     public bool quickestRotation(float angle1, float angle2)
@@ -73,7 +34,7 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
     public void getNextState()
     {
         Vector3 target = Vector3.zero;
-        GameObject obj = getTarget();
+        GameObject obj = GetComponent<TargetFinder>().getTarget();
         if(obj) target = obj.transform.position;
         Vector3 diff = target - transform.position;
         if(diff == -transform.position)
@@ -98,10 +59,10 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
 
         
         ship.move(1);
-        if ((shipAngle + 2 > targetAngle &&
-            shipAngle - 2 < targetAngle) &&
+        if ((shipAngle + 4 > targetAngle &&
+            shipAngle - 4 < targetAngle) &&
                 (Vector3.Distance(transform.position,
-                    target) < 2))
+                    target) < 3))
             ship.fire();
 
     }

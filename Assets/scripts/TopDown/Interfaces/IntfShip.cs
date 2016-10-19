@@ -9,10 +9,6 @@ using System.Collections;
 // Note: This does not direct the ship, it simply determines how
 // each action is implemented
 public interface IntfShip {
-
-
-    float getProjectileSpeed();
-
     ShipDefinitions.SState getState();
 
     float getAngle();
