@@ -33,7 +33,7 @@ public class ShipDefinitions
         return v3;
     }
     
-    public static void DrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.2f, float width = 0.05f)
+    public static void DrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.2f, float width = 0.075f)
     {
         GameObject myLine = new GameObject();
         myLine.transform.position = start;

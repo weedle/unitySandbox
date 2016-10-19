@@ -7,8 +7,8 @@ public class spawner : MonoBehaviour {
     public GameObject player;
     public GameObject crownEnemy;
     public GameObject crownAlly;
-    float cooldownMax = 50;
-    float cooldown = 50;
+    float cooldownMax = 30;
+    float cooldown = 30;
 
     private Color enemyCol = new Color(1, 0.2f, 0.2f);
     private Color allyCol = new Color(0.2f, 1, 0.2f);
@@ -93,7 +93,45 @@ public class spawner : MonoBehaviour {
                         {
                             Destroy(ship.gameObject);
                         }
+                        foreach (ImplCrownShip ship in GameObject.FindObjectsOfType<ImplCrownShip>())
+                        {
+                            Destroy(ship.gameObject);
+                        }
                     }
+                    /*
+                    if (touch.position.x > Screen.width * 0.9 &&
+    touch.position.y > Screen.height * 0.9)
+                    {
+                        for(int i = 0; i <= 8; i++)
+                        {
+                            Color color;
+                            GameObject obj;
+                            Vector3 spawnPoint;
+                            Vector3 spawnRand = Vector3.zero;// Random.insideUnitSphere;
+                            spawnRand.z = 0;
+                            float z = Random.Range(1, 10);
+                            if (z <= 5) {
+                                color = enemyCol; 
+                                spawnPoint = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width/4, Screen.height/2)) + spawnRand;
+                            }
+                            else
+                            {
+                                color = allyCol;
+                                spawnPoint = Camera.main.ScreenToWorldPoint(new Vector2(3 * Screen.width / 4, Screen.height / 2)) + spawnRand;
+                            }
+
+                            if(z <= 2.5)
+                                obj = (GameObject)Instantiate(crownEnemy, spawnPoint, Quaternion.Euler(0, 0, 0));
+                            else if( z > 2.5 && z <= 5)
+                                obj = (GameObject)Instantiate(enemy, spawnPoint, Quaternion.Euler(0, 0, 0));
+                            else if (z > 5 && z <= 7.5)
+                                obj = (GameObject)Instantiate(crownAlly, spawnPoint, Quaternion.Euler(0, 0, 0));
+                            else
+                                obj = (GameObject)Instantiate(ally, spawnPoint, Quaternion.Euler(0, 0, 0));
+                            obj.GetComponent<SpriteRenderer>().color = color;
+                        }
+                    }
+                    */
                 }
             }
         } else
