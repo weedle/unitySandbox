@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
-  projectile: {fileID: 50000010779180126, guid: a409640190844394bab6e4286fd3a576,
+  projectile: {fileID: 114000011315229380, guid: a409640190844394bab6e4286fd3a576,
     type: 2}
   projectileSpeed: 20
   ammoMax: 15
@@ -124,6 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c520eec59fde794e91493543ae94a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 5
+  moveSpeed: 1.2
 --- !u!114 &114000013271915372
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,8 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60301e27158b7774c9f131bdebc83eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
   healthPoints: 20
-  faction: 1
+  maxHealth: 20
+  inactive: 0
 --- !u!212 &212000013515200804
 SpriteRenderer:
   m_ObjectHideFlags: 1

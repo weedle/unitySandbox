@@ -15,9 +15,17 @@ public interface IntfShip {
 
     void brake();
 
+    void start();
+
+    void stop();
+
     void move(float vertical);
 
     void rotate(float horizontal);
 
     void fire();
+
+    float getEffectiveDistance();
+
+    float getEffectiveAngle();
 }

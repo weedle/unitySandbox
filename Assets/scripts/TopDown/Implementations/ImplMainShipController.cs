@@ -6,7 +6,7 @@ public class ImplMainShipController : MonoBehaviour, IntfShipController
 {
     public IntfShip ship;
     public float healthPoints = 100;
-    public ShipDefinitions.Faction faction = ShipDefinitions.Faction.Player;
+    private ShipDefinitions.Faction faction;
 
     // does nothing since player targets manually
     public GameObject getTarget()
@@ -29,7 +29,9 @@ public class ImplMainShipController : MonoBehaviour, IntfShipController
     }
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        faction = ShipDefinitions.stringToFaction(gameObject.tag);
         ship = GetComponent<IntfShip>();
 	}
 	
@@ -38,16 +40,21 @@ public class ImplMainShipController : MonoBehaviour, IntfShipController
         getNextState();
     }
 
-    public void isHit()
+    public void isHit(float damage)
     {
-        healthPoints--;
-        print(healthPoints);
-        if (healthPoints == 0)
+        healthPoints -= damage;
+        print("Current Health: " + healthPoints.ToString());
+        if (healthPoints >= 0)
             Destroy(gameObject);
     }
 
     public ShipDefinitions.Faction getFaction()
     {
         return faction;
+    }
+
+    public void setFaction(ShipDefinitions.Faction faction)
+    {
+        this.faction = faction;
     }
 }

@@ -6,9 +6,6 @@ public class Particle2 : ParticleAbstract
     float spinrate = 4;
 
     // Use this for initialization
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
@@ -33,6 +30,7 @@ public class Particle2 : ParticleAbstract
 
     }
 
+    /*
     public float distBetween(Vector3 a, Vector3 b)
     {
         a.x = b.x - a.x;
@@ -48,6 +46,7 @@ public class Particle2 : ParticleAbstract
 
         return a.x;
     }
+    */
 
     public void OnTriggerEnter2D(Collider2D col)
     {
@@ -59,7 +58,7 @@ public class Particle2 : ParticleAbstract
                 faction == ShipDefinitions.Faction.Enemy)
         {
             col.gameObject.GetComponent
-                <IntfShipController>().isHit();
+                <IntfShipController>().isHit(1);
         }
     }
 }

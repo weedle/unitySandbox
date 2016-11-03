@@ -64,10 +64,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\InputHandler.cs" />
+    <Compile Include="Assets\ObjectManager.cs" />
     <Compile Include="Assets\explodeScript.cs" />
     <Compile Include="Assets\scripts\Abstractions\IntfTActionMachine.cs" />
     <Compile Include="Assets\scripts\Abstractions\IntfTStateMachine.cs" />
     <Compile Include="Assets\scripts\Abstractions\ParticleAbstract.cs" />
+    <Compile Include="Assets\scripts\HealthBar.cs" />
+    <Compile Include="Assets\scripts\Implementations\HomingMissile.cs" />
     <Compile Include="Assets\scripts\Implementations\Particle1.cs" />
     <Compile Include="Assets\scripts\Implementations\Particle2.cs" />
     <Compile Include="Assets\scripts\Implementations\Particle3.cs" />
@@ -78,11 +81,11 @@
     <Compile Include="Assets\scripts\MachineDefinitions.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
     <Compile Include="Assets\scripts\TopDown\Implementations\ImplCrownFiringModule.cs" />
-    <Compile Include="Assets\scripts\TopDown\Implementations\ImplCrownShip.cs" />
     <Compile Include="Assets\scripts\TopDown\Implementations\ImplEnemyShipController.cs" />
     <Compile Include="Assets\scripts\TopDown\Implementations\ImplFlamethrowerFiringModule.cs" />
     <Compile Include="Assets\scripts\TopDown\Implementations\ImplMainShip.cs" />
     <Compile Include="Assets\scripts\TopDown\Implementations\ImplMainShipController.cs" />
+    <Compile Include="Assets\scripts\TopDown\Implementations\ImplMissileFiringModule.cs" />
     <Compile Include="Assets\scripts\TopDown\Interfaces\IntfFiringModule.cs" />
     <Compile Include="Assets\scripts\TopDown\Interfaces\IntfShip.cs" />
     <Compile Include="Assets\scripts\TopDown\Interfaces\IntfShipController.cs" />

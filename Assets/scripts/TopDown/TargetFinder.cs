@@ -24,9 +24,8 @@ public class TargetFinder : MonoBehaviour {
         }
         return closest;
     }
-    public GameObject getTarget()
+    public GameObject getTarget(ShipDefinitions.Faction faction)
     {
-        ShipDefinitions.Faction faction = transform.GetComponent<IntfShipController>().getFaction();
         if (faction == ShipDefinitions.Faction.Enemy)
         {
             string[] tags = { "Player", "PlayerAffil" };

@@ -4,11 +4,11 @@ using System.Collections;
 public class ImplFlamethrowerFiringModule : MonoBehaviour, IntfFiringModule
 {
     public int counter = 0;
-    public Rigidbody2D projectile;
+    public ParticleAbstract projectile;
     public float projectileSpeed = 20;
     public int ammoMax = 15;
     public int ammunition = 15;
-    public int ammoCooldown = 200;
+    public int ammoCooldown = 80;
 
     // Use this for initialization
     void Start ()
@@ -16,8 +16,6 @@ public class ImplFlamethrowerFiringModule : MonoBehaviour, IntfFiringModule
         projectileSpeed += Random.Range(-4, 4);
         ammoMax += Random.Range(-4, 4);
         ammoCooldown += Random.Range(-20, 20);
-        projectile.GetComponent<ParticleAbstract>().
-            setFaction(gameObject.GetComponent<IntfShipController>().getFaction());
     }
 	
 	// Update is called once per frame
@@ -39,12 +37,38 @@ public class ImplFlamethrowerFiringModule : MonoBehaviour, IntfFiringModule
         if (ammunition > 0)
         {
             Vector3 vec;
+            Vector3 temp;
             Rigidbody2D proj;
             vec = new Vector3(0, (float)0.25, 0);
             vec = transform.rotation * vec;
-            proj = (Rigidbody2D)Instantiate(projectile, new Vector3(transform.position.x, transform.position.y) + vec, Quaternion.Euler(0, 0, 90));
-            proj.velocity = new Vector3(projectileSpeed * vec.x, projectileSpeed * vec.y, 0);
+            for (int i = 0; i <= 3; i++)
+            {
+                temp = new Vector3(transform.position.x, transform.position.y);
+                proj = (Rigidbody2D)Instantiate(projectile.GetComponent<Rigidbody2D>(), 
+                    temp + vec, Quaternion.Euler(0, 0, 90));
+                temp = new Vector3(projectileSpeed * vec.x, projectileSpeed * vec.y, 0);
+                proj.velocity = temp;
+                //proj.MoveRotation(proj.transform.rotation.eulerAngles.z
+                //    + Random.Range(-15, 15));
+            }
             ammunition--;
+            temp = Vector3.zero;
+            vec = Vector3.zero;
         }
+    }
+
+    public float getEffectiveDistance()
+    {
+        return 2;
+    }
+
+    public float getEffectiveAngle()
+    {
+        return 4;
+    }
+    
+    public void setFaction(ShipDefinitions.Faction faction)
+    {
+        projectile.faction = faction;
     }
 }

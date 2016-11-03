@@ -7,8 +7,13 @@ public class spawner : MonoBehaviour {
     public GameObject player;
     public GameObject enemyCrown;
     public GameObject allyCrown;
+    public GameObject enemyMissile;
+    public GameObject allyMissile;
+    public GameObject empty;
+    public GameObject health;
     float cooldownMax = 15;
     float cooldown = 15;
+    int counter = 2000;
 
     private Color enemyCol = new Color(1, 0.2f, 0.2f);
     private Color allyCol = new Color(0.2f, 1, 0.2f);
@@ -18,57 +23,52 @@ public class spawner : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+
+	void Update ()
+    {
+        Vector3 temp;
+        if (Time.frameCount % 1000 == 0)
+        {
+            System.GC.Collect();
+        }
+        if (counter >= 1000)
+        {
+            counter = 0;
+            Resources.UnloadUnusedAssets();
+        }
+        counter++;
+
         if (cooldown <= 0)
         {
+            Vector2 cursorPoint = new Vector2(ShipDefinitions.getCursor().x,
+                    ShipDefinitions.getCursor().y);
             if (Input.GetButton("z"))
             {
-                spawnAllyShip(new Vector2(ShipDefinitions.getCursor().x,
-                    ShipDefinitions.getCursor().y));
+                spawnAllyShip(cursorPoint);
             }
             if (Input.GetButton("x"))
             {
-                spawnAllyCrown(new Vector2(ShipDefinitions.getCursor().x,
-                    ShipDefinitions.getCursor().y));
+                spawnAllyCrown(cursorPoint);
             }
             if (Input.GetButton("c"))
             {
-                spawnEnemyShip(new Vector2(ShipDefinitions.getCursor().x,
-                    ShipDefinitions.getCursor().y));
+                spawnAllyMissile(cursorPoint);
             }
             if (Input.GetButton("v"))
             {
-                spawnEnemyCrown(new Vector2(ShipDefinitions.getCursor().x,
-                    ShipDefinitions.getCursor().y));
+                spawnEnemyShip(cursorPoint);
             }
-            if(Input.GetButton("b"))
+            if (Input.GetButton("b"))
             {
-                for (int i = 0; i <= 8; i++)
-                {
-                    Vector3 spawnPoint;
-                    Vector3 spawnRand = 2*Random.insideUnitSphere;
-                    spawnPoint = Vector3.zero;
-                    spawnPoint.y = Camera.main.ScreenToWorldPoint(new Vector3(0, Camera.main.pixelHeight / 2)).y;
-                    spawnRand.z = 0;
-                    float z = Random.Range(0, 10);
-                    if (z <= 5)
-                    {
-                        spawnPoint.x = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.pixelWidth / 4, 0, Camera.main.nearClipPlane)).x;
-                    }
-                    else
-                    {
-                        spawnPoint.x = Camera.main.ScreenToWorldPoint(new Vector3(3 * Camera.main.pixelWidth / 4, Camera.main.nearClipPlane)).x;
-                    }
-
-                    if (z <= 2.5)
-                        spawnEnemyCrown(spawnPoint + spawnRand);
-                    else if (z > 2.5 && z <= 5)
-                        spawnEnemyShip(spawnPoint + spawnRand);
-                    else if (z > 5 && z <= 7.5)
-                        spawnAllyCrown(spawnPoint + spawnRand);
-                    else
-                        spawnAllyShip(spawnPoint + spawnRand);
-                }
+                spawnEnemyCrown(cursorPoint);
+            }
+            if (Input.GetButton("n"))
+            {
+                spawnEnemyMissile(cursorPoint);
+            }
+            if(Input.GetButton("m"))
+            {
+                spawnBunch();
             }
             foreach (Touch touch in Input.touches)
             {
@@ -78,27 +78,27 @@ public class spawner : MonoBehaviour {
                 //    Screen.height, 0));
                 if (touch.phase == TouchPhase.Began)
                 {
-                    if(vec.x < 0)
+                    temp = new Vector3(vec.x, vec.y);
+                    if (vec.x < 0)
                     {
-                        GameObject obj;
                         if (vec.y < 0)
                         {
-                            spawnEnemyShip(new Vector3(vec.x, vec.y));
+                            spawnEnemyShip(temp);
                         }
                         else
                         {
-                            spawnEnemyCrown(new Vector3(vec.x, vec.y));
+                            spawnEnemyCrown(temp);
                         }
                     }
                     else
                     {
                         if (vec.y < 0)
                         {
-                            spawnAllyShip(new Vector3(vec.x, vec.y));
+                            spawnAllyShip(temp);
                         }
                         else
                         {
-                            spawnAllyCrown(new Vector3(vec.x, vec.y));
+                            spawnAllyCrown(temp);
                         }
                     }
 
@@ -109,46 +109,57 @@ public class spawner : MonoBehaviour {
                         {
                             Destroy(ship.gameObject);
                         }
-                        foreach (ImplCrownShip ship in GameObject.FindObjectsOfType<ImplCrownShip>())
-                        {
-                            Destroy(ship.gameObject);
-                        }
                     }
                     if (touch.position.x > Screen.width * 0.9 &&
     touch.position.y > Screen.height * 0.9)
                     {
-                        for (int i = 0; i <= 8; i++)
-                        {
-                            Vector3 spawnPoint;
-                            Vector3 spawnRand = 2 * Random.insideUnitSphere;
-                            spawnPoint = Vector3.zero;
-                            spawnPoint.y = Camera.main.ScreenToWorldPoint(new Vector3(0, Camera.main.pixelHeight / 2)).y;
-                            spawnRand.z = 0;
-                            float z = Random.Range(0, 10);
-                            if (z <= 5)
-                            {
-                                spawnPoint.x = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.pixelWidth / 4, 0, Camera.main.nearClipPlane)).x;
-                            }
-                            else
-                            {
-                                spawnPoint.x = Camera.main.ScreenToWorldPoint(new Vector3(3 * Camera.main.pixelWidth / 4, Camera.main.nearClipPlane)).x;
-                            }
-
-                            if (z <= 2.5)
-                                spawnEnemyCrown(spawnPoint + spawnRand);
-                            else if (z > 2.5 && z <= 5)
-                                spawnEnemyShip(spawnPoint + spawnRand);
-                            else if (z > 5 && z <= 7.5)
-                                spawnAllyCrown(spawnPoint + spawnRand);
-                            else
-                                spawnAllyShip(spawnPoint + spawnRand);
-                        }
+                        spawnBunch();
                     }
                 }
             }
         } else
         {
             cooldown--;
+        }
+        temp = Vector3.zero;
+    }
+
+    void spawnBunch()
+    {
+        Vector3 temp;
+        for (int i = 0; i <= 8; i++)
+        {
+            Vector3 spawnPoint;
+            Vector3 spawnRand = 2 * Random.insideUnitSphere;
+            spawnPoint = Vector3.zero;
+            temp = new Vector3(0, Camera.main.pixelHeight / 2);
+            spawnPoint.y = Camera.main.ScreenToWorldPoint(temp).y;
+            spawnRand.z = 0;
+            float z = Random.Range(0, 15);
+            if (z <= 7.5)
+            {
+                temp = new Vector3(Camera.main.pixelWidth / 4, 0, Camera.main.nearClipPlane);
+                spawnPoint.x = Camera.main.ScreenToWorldPoint(temp).x;
+            }
+            else
+            {
+                temp = new Vector3(3 * Camera.main.pixelWidth / 4, Camera.main.nearClipPlane);
+                spawnPoint.x = Camera.main.ScreenToWorldPoint(temp).x;
+            }
+
+            if (z <= 2.5)
+                spawnEnemyShip(spawnPoint + spawnRand);
+            else if (z > 2.5 && z <= 5)
+                spawnEnemyCrown(spawnPoint + spawnRand);
+            else if (z > 5 && z <= 7.5)
+                spawnEnemyMissile(spawnPoint + spawnRand);
+            else if (z > 7.5 && z <= 10)
+                spawnAllyShip(spawnPoint + spawnRand);
+            else if (z > 10 && z <= 12.5)
+                spawnAllyCrown(spawnPoint + spawnRand);
+            else
+                spawnAllyMissile(spawnPoint + spawnRand);
+
         }
     }
 
@@ -162,6 +173,11 @@ public class spawner : MonoBehaviour {
         spawnShip(spawnPoint, allyCrown, allyCol);
     }
 
+    void spawnAllyMissile(Vector2 spawnPoint)
+    {
+        spawnShip(spawnPoint, allyMissile, allyCol);
+    }
+
     void spawnEnemyShip(Vector2 spawnPoint)
     {
         spawnShip(spawnPoint, enemy, enemyCol);
@@ -172,11 +188,35 @@ public class spawner : MonoBehaviour {
         spawnShip(spawnPoint, enemyCrown, enemyCol);
     }
 
+    void spawnEnemyMissile(Vector2 spawnPoint)
+    {
+        spawnShip(spawnPoint, enemyMissile, enemyCol);
+    }
+
     void spawnShip(Vector2 spawnPoint, GameObject ship, Color color)
     {
         GameObject obj = (GameObject)Instantiate(ship, spawnPoint, Quaternion.Euler(0, 0, 0));
         obj.GetComponent<SpriteRenderer>().color = color;
         cooldown = cooldownMax;
+
+        GameObject parent = (GameObject)Instantiate(empty, spawnPoint, Quaternion.Euler(0, 0, 0));
+
+        GameObject healthBar = (GameObject)Instantiate(health, spawnPoint, Quaternion.Euler(0, 0, 0));
+        
+        healthBar.transform.parent = parent.transform;
+        obj.transform.parent = parent.transform;
+
+        ImplEnemyShipController ctrl = obj.GetComponent<ImplEnemyShipController>();
+        ctrl.health = healthBar;
+
+        HealthBar bar = healthBar.GetComponent<HealthBar>();
+        bar.target = obj;
     }
 
+    void setFaction(GameObject obj, ShipDefinitions.Faction faction)
+    {
+        obj.tag = faction.ToString();
+        obj.GetComponent<IntfShipController>().setFaction(faction);
+        //obj.GetComponent<IntfFiringModule>().
+    }
 }

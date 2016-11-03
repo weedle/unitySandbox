@@ -5,7 +5,9 @@ public interface IntfShipController
 {
     void getNextState();
 
-    void isHit();
+    void isHit(float damage);
 
     ShipDefinitions.Faction getFaction();
+
+    void setFaction(ShipDefinitions.Faction faction);
 }

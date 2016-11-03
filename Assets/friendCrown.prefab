@@ -117,6 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c520eec59fde794e91493543ae94a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 6
+  moveSpeed: 1
 --- !u!114 &114000012748632014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,7 +135,7 @@ MonoBehaviour:
   counter: 0
   ammoMax: 10
   ammunition: 10
-  ammoCooldown: 200
+  ammoCooldown: 100
 --- !u!114 &114000013542868840
 MonoBehaviour:
   m_ObjectHideFlags: 1

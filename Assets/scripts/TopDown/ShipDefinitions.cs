@@ -46,4 +46,45 @@ public class ShipDefinitions
         lr.SetPosition(1, end);
         GameObject.Destroy(myLine, duration);
     }
+
+    // find quickest path for thing at angle1 to reach angle2
+    // if true, turn clockwise, otherwise turn counterclockwise
+    public static bool quickestRotation(float angle1, float angle2)
+    {
+        if (angle1 > 180)
+        {
+            if (angle2 > angle1 ||
+                (angle2 < angle1 - 180))
+                return false;
+            else
+                return true;
+        }
+        else
+        {
+            if (angle2 > angle1 &&
+                (angle2 < angle1 + 180))
+                return false;
+            else
+                return true;
+        }
+    }
+
+    public static Faction stringToFaction(String str)
+    {
+        switch(str)
+        {
+            case "Enemy":
+                return Faction.Enemy;
+            case "Indep":
+                return Faction.Indep;
+            case "Player":
+                return Faction.Player;
+            case "PlayerAffil":
+                return Faction.PlayerAffil;
+            case "Rogue":
+                return Faction.Rogue;
+            default:
+                return Faction.Player;
+        }
+    }
 }

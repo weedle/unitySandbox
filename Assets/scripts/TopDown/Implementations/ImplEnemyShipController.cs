@@ -5,36 +5,17 @@ using System;
 public class ImplEnemyShipController : MonoBehaviour, IntfShipController
 {
     public IntfShip ship;
+    public GameObject health;
     public float healthPoints = 10;
-    Boolean inactive = false;
-    public ShipDefinitions.Faction faction = ShipDefinitions.Faction.Enemy;
-
-    // find quickest path for thing at angle1 to reach angle2
-    // if true, turn clockwise, otherwise turn counterclockwise
-    public bool quickestRotation(float angle1, float angle2)
-    {
-        if (angle1 > 180)
-        {
-            if (angle2 > angle1 ||
-                (angle2 < angle1 - 180))
-                return false;
-            else
-                return true;
-        }
-        else
-        {
-            if (angle2 > angle1 &&
-                (angle2 < angle1 + 180))
-                return false;
-            else
-                return true;
-        }
-    }
+    public float maxHealth = 10;
+    public Boolean inactive;
+    private string tagReserve;
+    private ShipDefinitions.Faction faction;
 
     public void getNextState()
     {
         Vector3 target = Vector3.zero;
-        GameObject obj = GetComponent<TargetFinder>().getTarget();
+        GameObject obj = GetComponent<TargetFinder>().getTarget(faction);
         if(obj) target = obj.transform.position;
         Vector3 diff = target - transform.position;
         if(diff == -transform.position)
@@ -52,25 +33,31 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
 
         //print("Target: " + targetAngle.ToString() + " Ship: " + shipAngle.ToString());
 
-        if (quickestRotation(shipAngle, targetAngle))
+        if (ShipDefinitions.quickestRotation(shipAngle, targetAngle))
             ship.rotate(0.5f);
         else
             ship.rotate(-0.5f);
 
         
         ship.move(1);
-        if ((shipAngle + 4 > targetAngle &&
-            shipAngle - 4 < targetAngle) &&
-                (Vector3.Distance(transform.position,
-                    target) < 3))
-            ship.fire();
 
+        IntfShip shipObject = GetComponent<IntfShip>();
+        if ((shipAngle + shipObject.getEffectiveAngle() > targetAngle &&
+            shipAngle - shipObject.getEffectiveAngle() < targetAngle) &&
+                (Vector3.Distance(transform.position,
+                    target) < shipObject.getEffectiveDistance()))
+            ship.fire();
+        shipObject = null;
+        obj = null;
     }
 
     // Use this for initialization
     void Start()
     {
+        faction = ShipDefinitions.stringToFaction(gameObject.tag);
         ship = this.GetComponent<IntfShip>();
+        tag = gameObject.tag;
+        tagReserve = tag;
     }
 
     // Update is called once per frame
@@ -80,10 +67,14 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
         getNextState();
     }
 
-    public void isHit()
+    public void isHit(float damage)
     {
-        healthPoints--;
-        if (healthPoints == 0)
+        healthPoints -= damage;
+
+        float perc = healthPoints / maxHealth;
+        health.GetComponent<HealthBar>().setHealthPercentage(perc);
+
+        if (healthPoints <= 0)
         {
             inactive = true;
             this.gameObject.GetComponent<SpriteRenderer>().
@@ -96,5 +87,31 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
     public ShipDefinitions.Faction getFaction()
     {
         return faction;
+    }
+
+    public void setFaction(ShipDefinitions.Faction faction)
+    {
+        this.faction = faction;
+    }
+
+    public void enable()
+    {
+        gameObject.tag = tagReserve;
+        enabled = true;
+        ship.start();
+    }
+
+    public void disable()
+    {
+        tagReserve = gameObject.tag;
+        gameObject.tag = "Untagged";
+        enabled = false;
+        ship.stop();
+    }
+
+    void OnMouseDown()
+    {
+        if (enabled) disable();
+        else enable();
     }
 }

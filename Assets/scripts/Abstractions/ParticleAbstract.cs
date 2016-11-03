@@ -19,9 +19,4 @@ public abstract class ParticleAbstract : MonoBehaviour {
             lifetime--;
         }
 	}
-
-    public void setFaction(ShipDefinitions.Faction faction)
-    {
-        this.faction = faction;
-    }
 }
