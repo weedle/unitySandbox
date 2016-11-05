@@ -18,15 +18,16 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000011777912124}
+  - 224: {fileID: 224000011583060374}
   - 212: {fileID: 212000013515200804}
   - 50: {fileID: 50000012937370654}
   - 114: {fileID: 114000013208379572}
-  - 114: {fileID: 114000013881810070}
   - 61: {fileID: 61000012590692256}
   - 95: {fileID: 95000011808848920}
   - 114: {fileID: 114000011237736070}
   - 114: {fileID: 114000013271915372}
+  - 114: {fileID: 114000010933219694}
+  - 222: {fileID: 222000010930184592}
   m_Layer: 0
   m_Name: friendShip
   m_TagString: PlayerAffil
@@ -34,19 +35,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000011777912124
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010133440952}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.82, y: -0.98, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
 --- !u!50 &50000012937370654
 Rigidbody2D:
   serializedVersion: 2
@@ -95,6 +83,21 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010933219694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010133440952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf1d6ab71c088340bc2beb184c927e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  healthPoints: 10
+  maxHealth: 10
+  inactive: 0
 --- !u!114 &114000011237736070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,21 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a29eeae4cde3a42b3dc6d024e47450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000013881810070
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010133440952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60301e27158b7774c9f131bdebc83eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  healthPoints: 20
-  maxHealth: 20
-  inactive: 0
 --- !u!212 &212000013515200804
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -185,3 +173,27 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!222 &222000010930184592
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010133440952}
+--- !u!224 &224000011583060374
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010133440952}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.0681572, y: 1.8884637}
+  m_SizeDelta: {x: 0.32, y: 0.32}
+  m_Pivot: {x: 0.51891255, y: 0.4847834}

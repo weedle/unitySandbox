@@ -22,11 +22,11 @@ GameObject:
   - 212: {fileID: 212000012278101702}
   - 50: {fileID: 50000010805075442}
   - 114: {fileID: 114000012780634620}
-  - 114: {fileID: 114000013841091802}
   - 61: {fileID: 61000013574918188}
   - 95: {fileID: 95000011596429528}
   - 114: {fileID: 114000011282301814}
-  - 114: {fileID: 114000012778447916}
+  - 114: {fileID: 114000010238838118}
+  - 114: {fileID: 114000012883108990}
   m_Layer: 0
   m_Name: enemyMissile
   m_TagString: Enemy
@@ -95,18 +95,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000011282301814
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011256843632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3a29eeae4cde3a42b3dc6d024e47450, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114000012778447916
+--- !u!114 &114000010238838118
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -118,14 +107,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
-  projectile: {fileID: 114000011250326276, guid: f206b4a4025518d4ead1ac7139d985cf,
-    type: 2}
+  projectile: {fileID: 0}
   projectileSpeed: 20
   ammoMax: 3
   ammunition: 3
-  ammoCooldown: 200
+  ammoCooldown: 160
   immediateCooldown: 30
   immediateCooldownMax: 30
+--- !u!114 &114000011282301814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011256843632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a29eeae4cde3a42b3dc6d024e47450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000012780634620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,7 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 5
   moveSpeed: 0.4
---- !u!114 &114000013841091802
+--- !u!114 &114000012883108990
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -147,12 +146,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011256843632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60301e27158b7774c9f131bdebc83eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: dcf1d6ab71c088340bc2beb184c927e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
-  healthPoints: 20
-  maxHealth: 20
+  text: {fileID: 0}
+  healthPoints: 10
+  maxHealth: 10
   inactive: 0
 --- !u!212 &212000012278101702
 SpriteRenderer:

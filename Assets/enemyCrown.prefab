@@ -22,11 +22,11 @@ GameObject:
   - 212: {fileID: 212000011475843850}
   - 50: {fileID: 50000012922882492}
   - 114: {fileID: 114000011003175936}
-  - 114: {fileID: 114000013280134762}
   - 61: {fileID: 61000011447753502}
   - 95: {fileID: 95000010651011504}
   - 114: {fileID: 114000010923169826}
   - 114: {fileID: 114000011766195706}
+  - 114: {fileID: 114000012262951324}
   m_Layer: 0
   m_Name: enemyCrown
   m_TagString: Enemy
@@ -136,7 +136,7 @@ MonoBehaviour:
   ammoMax: 10
   ammunition: 10
   ammoCooldown: 100
---- !u!114 &114000013280134762
+--- !u!114 &114000012262951324
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -144,11 +144,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010303998680}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60301e27158b7774c9f131bdebc83eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: dcf1d6ab71c088340bc2beb184c927e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  text: {fileID: 0}
   healthPoints: 10
-  faction: 2
+  maxHealth: 10
+  inactive: 0
 --- !u!212 &212000011475843850
 SpriteRenderer:
   m_ObjectHideFlags: 1

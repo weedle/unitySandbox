@@ -6,9 +6,10 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
 {
     public IntfShip ship;
     public GameObject health;
+    public GameObject text;
     public float healthPoints = 10;
     public float maxHealth = 10;
-    public Boolean inactive;
+    public bool inactive;
     private string tagReserve;
     private ShipDefinitions.Faction faction;
 
@@ -113,5 +114,15 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
     {
         if (enabled) disable();
         else enable();
+    }
+
+    public void setHealth(GameObject health)
+    {
+        this.health = health;
+    }
+
+    public void setText(GameObject text)
+    {
+        this.text = text;
     }
 }

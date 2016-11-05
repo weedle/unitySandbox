@@ -4,8 +4,11 @@ using System;
 
 public class ImplMainShipController : MonoBehaviour, IntfShipController
 {
+    public GameObject health;
+    public GameObject text;
     public IntfShip ship;
     public float healthPoints = 100;
+    public float maxHealth = 100;
     private ShipDefinitions.Faction faction;
 
     // does nothing since player targets manually
@@ -43,6 +46,11 @@ public class ImplMainShipController : MonoBehaviour, IntfShipController
     public void isHit(float damage)
     {
         healthPoints -= damage;
+
+        float perc = healthPoints / maxHealth;
+        health.GetComponent<HealthBar>().setHealthPercentage(perc);
+
+        healthPoints -= damage;
         print("Current Health: " + healthPoints.ToString());
         if (healthPoints >= 0)
             Destroy(gameObject);
@@ -56,5 +64,15 @@ public class ImplMainShipController : MonoBehaviour, IntfShipController
     public void setFaction(ShipDefinitions.Faction faction)
     {
         this.faction = faction;
+    }
+
+    public void setHealth(GameObject health)
+    {
+        this.health = health;
+    }
+
+    public void setText(GameObject text)
+    {
+        this.text = text;
     }
 }

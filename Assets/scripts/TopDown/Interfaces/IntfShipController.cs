@@ -10,4 +10,8 @@ public interface IntfShipController
     ShipDefinitions.Faction getFaction();
 
     void setFaction(ShipDefinitions.Faction faction);
+
+    void setHealth(GameObject health);
+
+    void setText(GameObject text);
 }

@@ -59,4 +59,10 @@ public class ImplCrownFiringModule : MonoBehaviour, IntfFiringModule
     {
         return 8;
     }
+
+    public bool canFire()
+    {
+        if (ammunition > 0) return true;
+        else return false;
+    }
 }

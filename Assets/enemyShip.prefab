@@ -22,11 +22,11 @@ GameObject:
   - 212: {fileID: 212000012617423112}
   - 50: {fileID: 50000010079017420}
   - 114: {fileID: 114000012374097204}
-  - 114: {fileID: 114000010851510250}
   - 61: {fileID: 61000013104843554}
   - 95: {fileID: 95000012385286926}
   - 114: {fileID: 114000013826825158}
   - 114: {fileID: 114000013979417780}
+  - 114: {fileID: 114000011348179192}
   m_Layer: 0
   m_Name: enemyShip
   m_TagString: Enemy
@@ -95,7 +95,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000010851510250
+--- !u!114 &114000011348179192
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -103,12 +103,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010314460406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60301e27158b7774c9f131bdebc83eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: dcf1d6ab71c088340bc2beb184c927e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
-  healthPoints: 20
-  maxHealth: 20
+  text: {fileID: 0}
+  healthPoints: 10
+  maxHealth: 10
   inactive: 0
 --- !u!114 &114000012374097204
 MonoBehaviour:

@@ -8,4 +8,6 @@ public interface IntfFiringModule {
     float getEffectiveDistance();
 
     float getEffectiveAngle();
+
+    bool canFire();
 }

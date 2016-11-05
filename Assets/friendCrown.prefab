@@ -22,11 +22,11 @@ GameObject:
   - 212: {fileID: 212000010126994894}
   - 50: {fileID: 50000014134996908}
   - 114: {fileID: 114000011214892912}
-  - 114: {fileID: 114000013542868840}
   - 61: {fileID: 61000013235073128}
   - 95: {fileID: 95000010521317678}
   - 114: {fileID: 114000010844111476}
   - 114: {fileID: 114000012748632014}
+  - 114: {fileID: 114000012157655256}
   m_Layer: 0
   m_Name: friendCrown
   m_TagString: PlayerAffil
@@ -119,6 +119,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 6
   moveSpeed: 1
+--- !u!114 &114000012157655256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012454886312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf1d6ab71c088340bc2beb184c927e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  text: {fileID: 0}
+  healthPoints: 10
+  maxHealth: 10
+  inactive: 0
 --- !u!114 &114000012748632014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,19 +152,6 @@ MonoBehaviour:
   ammoMax: 10
   ammunition: 10
   ammoCooldown: 100
---- !u!114 &114000013542868840
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012454886312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60301e27158b7774c9f131bdebc83eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoints: 10
-  faction: 1
 --- !u!212 &212000010126994894
 SpriteRenderer:
   m_ObjectHideFlags: 1

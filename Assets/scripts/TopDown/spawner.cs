@@ -11,6 +11,7 @@ public class spawner : MonoBehaviour {
     public GameObject allyMissile;
     public GameObject empty;
     public GameObject health;
+    public GameObject text;
     float cooldownMax = 15;
     float cooldown = 15;
     int counter = 2000;
@@ -107,7 +108,7 @@ public class spawner : MonoBehaviour {
                     {
                         foreach (ImplMainShip ship in GameObject.FindObjectsOfType<ImplMainShip>())
                         {
-                            Destroy(ship.gameObject);
+                            Destroy(ship.transform.parent.gameObject);
                         }
                     }
                     if (touch.position.x > Screen.width * 0.9 &&
@@ -202,15 +203,22 @@ public class spawner : MonoBehaviour {
         GameObject parent = (GameObject)Instantiate(empty, spawnPoint, Quaternion.Euler(0, 0, 0));
 
         GameObject healthBar = (GameObject)Instantiate(health, spawnPoint, Quaternion.Euler(0, 0, 0));
-        
+
+        GameObject textObj = (GameObject)Instantiate(text, spawnPoint, Quaternion.Euler(0, 0, 0));
+
         healthBar.transform.parent = parent.transform;
         obj.transform.parent = parent.transform;
+        textObj.transform.parent = parent.transform;
 
-        ImplEnemyShipController ctrl = obj.GetComponent<ImplEnemyShipController>();
-        ctrl.health = healthBar;
+        IntfShipController ctrl = obj.GetComponent<IntfShipController>();
+        ctrl.setHealth(healthBar);
+        ctrl.setText(textObj);
 
         HealthBar bar = healthBar.GetComponent<HealthBar>();
         bar.target = obj;
+
+        TextShip textShip = textObj.GetComponent<TextShip>();
+        textShip.target = obj;
     }
 
     void setFaction(GameObject obj, ShipDefinitions.Faction faction)

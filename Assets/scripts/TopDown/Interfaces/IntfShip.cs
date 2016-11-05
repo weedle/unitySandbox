@@ -28,4 +28,5 @@ public interface IntfShip {
     float getEffectiveDistance();
 
     float getEffectiveAngle();
+
 }

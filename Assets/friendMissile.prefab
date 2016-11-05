@@ -22,11 +22,11 @@ GameObject:
   - 212: {fileID: 212000011740040532}
   - 50: {fileID: 50000011965161006}
   - 114: {fileID: 114000011185212680}
-  - 114: {fileID: 114000013025312626}
   - 61: {fileID: 61000013797491104}
   - 95: {fileID: 95000010101709408}
   - 114: {fileID: 114000011268493032}
   - 114: {fileID: 114000011390474022}
+  - 114: {fileID: 114000011302316206}
   m_Layer: 0
   m_Name: friendMissile
   m_TagString: PlayerAffil
@@ -119,6 +119,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a29eeae4cde3a42b3dc6d024e47450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000011302316206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010602355324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf1d6ab71c088340bc2beb184c927e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  text: {fileID: 0}
+  healthPoints: 10
+  maxHealth: 10
+  inactive: 0
 --- !u!114 &114000011390474022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,21 +155,6 @@ MonoBehaviour:
   ammoCooldown: 200
   immediateCooldown: 30
   immediateCooldownMax: 30
---- !u!114 &114000013025312626
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010602355324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60301e27158b7774c9f131bdebc83eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  healthPoints: 20
-  maxHealth: 20
-  inactive: 0
 --- !u!212 &212000011740040532
 SpriteRenderer:
   m_ObjectHideFlags: 1
