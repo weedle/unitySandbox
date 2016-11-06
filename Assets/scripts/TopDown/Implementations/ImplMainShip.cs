@@ -4,6 +4,7 @@ using System.Collections;
 public class ImplMainShip : MonoBehaviour, IntfShip {
     public int rotationSpeed = 5;
     public float moveSpeed = 1;
+    private string shipName;
 
     // Use this for initialization
     void Start () {
@@ -11,7 +12,8 @@ public class ImplMainShip : MonoBehaviour, IntfShip {
         moveSpeed += Random.Range(-0.3f, 0.3f);
         //Camera camera = Camera.main;
         //camera.orthographicSize = 640 / Screen.width * Screen.height / 2;
-	}
+        shipName = ShipDefinitions.generateName();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -104,5 +106,10 @@ public class ImplMainShip : MonoBehaviour, IntfShip {
         enabled = false;
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.velocity = Vector2.zero;
+    }
+
+    public string getName()
+    {
+        return shipName;
     }
 }

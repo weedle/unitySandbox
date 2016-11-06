@@ -12,6 +12,7 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
     public bool inactive;
     private string tagReserve;
     private ShipDefinitions.Faction faction;
+    private string shipName;
 
     public void getNextState()
     {
@@ -124,5 +125,10 @@ public class ImplEnemyShipController : MonoBehaviour, IntfShipController
     public void setText(GameObject text)
     {
         this.text = text;
+    }
+
+    public string getName()
+    {
+        return ship.getName();
     }
 }

@@ -75,4 +75,9 @@ public class ImplMainShipController : MonoBehaviour, IntfShipController
     {
         this.text = text;
     }
+
+    public string getName()
+    {
+        return ship.getName();
+    }
 }

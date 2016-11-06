@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class ImplBasicAIShipImpl : MonoBehaviour, IntfShipController
+public class ImplBasicAIShip : MonoBehaviour, IntfShipController
 {
     private ShipDefinitions.SState state = ShipDefinitions.SState.Searching;
     public IntfShip ship;
@@ -15,6 +15,7 @@ public class ImplBasicAIShipImpl : MonoBehaviour, IntfShipController
     private ShipDefinitions.Faction faction;
     private GameObject target;
     private Vector3 badVector;
+    private string shipName;
 
     // For this guy; 
     // Aiming is when a target has been acquired and we're 
@@ -69,7 +70,7 @@ public class ImplBasicAIShipImpl : MonoBehaviour, IntfShipController
         */
     }
 
-    private void handleThisState()
+    private void handleState()
     {
         if (state == ShipDefinitions.SState.Searching)
         {
@@ -99,6 +100,10 @@ public class ImplBasicAIShipImpl : MonoBehaviour, IntfShipController
                 this.target = obj;
                 state = ShipDefinitions.SState.Aiming;
             }
+            else
+            {
+                ship.brake();
+            }
         }
         else if (state == ShipDefinitions.SState.Aiming)
         {
@@ -110,7 +115,7 @@ public class ImplBasicAIShipImpl : MonoBehaviour, IntfShipController
             }
 
             Vector3 diff = target.transform.position - transform.position;
-            print(diff);
+            //print(diff);
             float targetAngle = Mathf.Atan(diff.y / diff.x) * 180 / Mathf.PI + 90;
             if (diff.x > 0)
                 targetAngle = 180 + targetAngle;
@@ -175,15 +180,16 @@ public class ImplBasicAIShipImpl : MonoBehaviour, IntfShipController
         tag = gameObject.tag;
         tagReserve = tag;
         badVector = new Vector3(1e5f, 1e5f, 1e5f);
+        shipName = ship.getName();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (inactive) return;
-        handleThisState();
+        handleState();
         getNextState();
-        text.GetComponent<TextShip>().setText(state.ToString());
+        text.GetComponent<TextShip>().setText(shipName);
     }
 
     public void isHit(float damage)
@@ -242,5 +248,10 @@ public class ImplBasicAIShipImpl : MonoBehaviour, IntfShipController
     public void setText(GameObject text)
     {
         this.text = text;
+    }
+
+    public string getName()
+    {
+        return ship.getName();
     }
 }

@@ -37,6 +37,17 @@ public class ImplCrownFiringModule : MonoBehaviour, IntfFiringModule
         GameObject target = GetComponent<TargetFinder>().getTarget(faction);
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.velocity = Vector3.zero;
+
+        if(target == null)
+        {
+            return;
+        }
+
+        if(Vector3.Distance(transform.position,target.transform.position) > getEffectiveDistance())
+        {
+            return;
+        }
+
         if (ammunition > 0)
         {
             Vector3 firePoint = transform.position;

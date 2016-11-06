@@ -29,4 +29,6 @@ public interface IntfShip {
 
     float getEffectiveAngle();
 
+    string getName();
+
 }

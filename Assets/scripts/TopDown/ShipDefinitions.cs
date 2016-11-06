@@ -4,7 +4,11 @@ using System;
 // Contains various definitions that will be useful for other scripts
 public class ShipDefinitions
 {
-
+    static string[] names = new string[] {
+        "Alice", "Bob", "Carol", "Daisy", "Eliza",
+        "Francis", "Greg", "Harry", "Ingrid", "Jenne",
+        "Jen", "Jo", "Kevin", "Letticia", "Morrigan", 
+        "Nancy", "Orpheus", "Penelope", "Quark", "Stephanie"};
     // SHIP DEFINITIONS
 
     public enum SState
@@ -86,5 +90,12 @@ public class ShipDefinitions
             default:
                 return Faction.Player;
         }
+    }
+
+    public static string generateName()
+    {
+        int x = (int) Math.Floor((double) UnityEngine.Random.Range(1, 3000));
+        string prefix = names[(int) Math.Floor((double) UnityEngine.Random.Range(0, names.Length))];
+        return prefix + x.ToString();
     }
 }

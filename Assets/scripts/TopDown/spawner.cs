@@ -206,9 +206,9 @@ public class spawner : MonoBehaviour {
 
         GameObject textObj = (GameObject)Instantiate(text, spawnPoint, Quaternion.Euler(0, 0, 0));
 
-        healthBar.transform.parent = parent.transform;
-        obj.transform.parent = parent.transform;
-        textObj.transform.parent = parent.transform;
+        healthBar.transform.SetParent(parent.transform);
+        obj.transform.SetParent(parent.transform);
+        textObj.transform.SetParent(parent.transform);
 
         IntfShipController ctrl = obj.GetComponent<IntfShipController>();
         ctrl.setHealth(healthBar);
