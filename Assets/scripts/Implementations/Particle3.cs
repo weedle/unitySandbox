@@ -18,6 +18,8 @@ public class Particle3 : ParticleAbstract
     // Update is called once per frame
     void Update()
     {
+        if (!active)
+            return;
         transform.Rotate(new Vector3(0, 0, 4));
         if (lifetime <= 0)
         {

@@ -6,16 +6,10 @@ public class ImplBasicAIShip : MonoBehaviour, IntfShipController
 {
     private ShipDefinitions.SState state = ShipDefinitions.SState.Searching;
     public IntfShip ship;
-    public GameObject health;
-    public GameObject text;
-    public float healthPoints = 10;
-    public float maxHealth = 10;
-    public bool inactive;
     private string tagReserve;
     private ShipDefinitions.Faction faction;
     private GameObject target;
     private Vector3 badVector;
-    private string shipName;
 
     // For this guy; 
     // Aiming is when a target has been acquired and we're 
@@ -78,6 +72,13 @@ public class ImplBasicAIShip : MonoBehaviour, IntfShipController
             // if target is found, switch to state aiming
             Vector3 target = badVector;
             GameObject obj = GetComponent<TargetFinder>().getTarget(faction);
+
+            if((GetComponent<IntfFiringModule>().GetType().
+                Equals(typeof(ImplHealMissileFiringModule))))
+            {
+                obj = GetComponent<TargetFinder>().getFriendly(faction);
+            }
+
             this.target = obj;
             if (obj)
             {
@@ -148,11 +149,20 @@ public class ImplBasicAIShip : MonoBehaviour, IntfShipController
                         move = false;
                         state = ShipDefinitions.SState.Searching;
                     }
-                } 
+
+                    if ((GetComponent<IntfFiringModule>().GetType().
+                        Equals(typeof(ImplHealMissileFiringModule))))
+                    {
+                        if (target.GetComponent<IntfShip>().getHealthPercent() < 0.95)
+                            state = ShipDefinitions.SState.Firing;
+                    }
+                }
             }
             shipObject = null;
-            if(move)
+            if (move)
                 ship.move(1);
+            else
+                ship.brake();
         }
         else if (state == ShipDefinitions.SState.Firing)
         {
@@ -180,33 +190,14 @@ public class ImplBasicAIShip : MonoBehaviour, IntfShipController
         tag = gameObject.tag;
         tagReserve = tag;
         badVector = new Vector3(1e5f, 1e5f, 1e5f);
-        shipName = ship.getName();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (inactive) return;
+        if (!ship.getActive()) return;
         handleState();
         getNextState();
-        text.GetComponent<TextShip>().setText(shipName);
-    }
-
-    public void isHit(float damage)
-    {
-        healthPoints -= damage;
-
-        float perc = healthPoints / maxHealth;
-        health.GetComponent<HealthBar>().setHealthPercentage(perc);
-
-        if (healthPoints <= 0)
-        {
-            inactive = true;
-            this.gameObject.GetComponent<SpriteRenderer>().
-                color = Color.white;
-            this.gameObject.
-                GetComponent<Animator>().Play("Explode");
-        }
     }
 
     public ShipDefinitions.Faction getFaction()
@@ -240,18 +231,23 @@ public class ImplBasicAIShip : MonoBehaviour, IntfShipController
         else enable();
     }
 
-    public void setHealth(GameObject health)
-    {
-        this.health = health;
-    }
-
-    public void setText(GameObject text)
-    {
-        this.text = text;
-    }
-
     public string getName()
     {
         return ship.getName();
+    }
+
+    public ShipDefinitions.SState getState()
+    {
+        return state;
+    }
+
+    public void pause()
+    {
+        ship.pause();
+    }
+
+    public void unpause()
+    {
+        ship.unpause();
     }
 }

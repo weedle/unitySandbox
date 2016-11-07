@@ -31,4 +31,19 @@ public interface IntfShip {
 
     string getName();
 
+    void isHit(float damage);
+
+    void setHealth(GameObject health);
+
+    void setTextObj(GameObject text);
+
+    float getHealthPercent();
+
+    void setText(string newText);
+
+    bool getActive();
+
+    void pause();
+
+    void unpause();
 }

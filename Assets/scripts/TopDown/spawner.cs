@@ -9,6 +9,7 @@ public class spawner : MonoBehaviour {
     public GameObject allyCrown;
     public GameObject enemyMissile;
     public GameObject allyMissile;
+    public GameObject allyHealer;
     public GameObject empty;
     public GameObject health;
     public GameObject text;
@@ -210,9 +211,9 @@ public class spawner : MonoBehaviour {
         obj.transform.SetParent(parent.transform);
         textObj.transform.SetParent(parent.transform);
 
-        IntfShipController ctrl = obj.GetComponent<IntfShipController>();
+        IntfShip ctrl = obj.GetComponent<IntfShip>();
         ctrl.setHealth(healthBar);
-        ctrl.setText(textObj);
+        ctrl.setTextObj(textObj);
 
         HealthBar bar = healthBar.GetComponent<HealthBar>();
         bar.target = obj;

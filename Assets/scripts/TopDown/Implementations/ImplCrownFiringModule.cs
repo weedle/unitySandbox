@@ -55,7 +55,7 @@ public class ImplCrownFiringModule : MonoBehaviour, IntfFiringModule
             ShipDefinitions.DrawLine(firePoint, target.transform.position, color2, 0.12f);
             ShipDefinitions.DrawLine(firePoint, target.transform.position, color1, 0.14f);
             ShipDefinitions.DrawLine(firePoint, target.transform.position, color2, 0.1f);
-            target.GetComponent<IntfShipController>().isHit(2);
+            target.GetComponent<IntfShip>().isHit(2);
             ammunition--;
         }
         target = null;

@@ -10,6 +10,8 @@ public class Particle2 : ParticleAbstract
     // Update is called once per frame
     void Update()
     {
+        if (!active)
+            return;
         transform.Rotate(new Vector3(0, 0, spinrate));
         if (lifetime <= 0)
         {
@@ -58,7 +60,7 @@ public class Particle2 : ParticleAbstract
                 faction == ShipDefinitions.Faction.Enemy)
         {
             col.gameObject.GetComponent
-                <IntfShipController>().isHit(1);
+                <IntfShip>().isHit(1);
         }
     }
 }

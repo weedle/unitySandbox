@@ -5,15 +5,15 @@ public interface IntfShipController
 {
     void getNextState();
 
-    void isHit(float damage);
-
     ShipDefinitions.Faction getFaction();
-
-    string getName();
 
     void setFaction(ShipDefinitions.Faction faction);
 
-    void setHealth(GameObject health);
+    string getName();
 
-    void setText(GameObject text);
+    ShipDefinitions.SState getState();
+
+    void pause();
+
+    void unpause();
 }

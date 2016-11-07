@@ -1,21 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HomingMissile : ParticleAbstract {
+public class HealingMissile : ParticleAbstract
+{
     public GameObject target = null;
     public float moveSpeed = 3;
     public float rotationSpeed = 10;
     public int damage = 16;
-	
+
     void Start()
     {
-        target = GetComponent<TargetFinder>().getTarget(faction);
+        target = GetComponent<TargetFinder>().getFriendly(faction);
+
     }
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update()
     {
         if (!active)
             return;
+        if (target.transform.position == gameObject.transform.position)
+            target = null;
         if (lifetime <= 0)
         {
             Destroy(gameObject);
@@ -79,14 +83,14 @@ public class HomingMissile : ParticleAbstract {
     public void OnTriggerEnter2D(Collider2D col)
     {
         if ((col.CompareTag("Enemy") &&
-                (faction == ShipDefinitions.Faction.Player ||
-                faction == ShipDefinitions.Faction.PlayerAffil)) ||
+                (faction == ShipDefinitions.Faction.Enemy) ||
              (col.CompareTag("Player") ||
               col.CompareTag("PlayerAffil")) &&
-                faction == ShipDefinitions.Faction.Enemy)
+                faction == ShipDefinitions.Faction.Player ||
+                faction == ShipDefinitions.Faction.PlayerAffil))
         {
             col.gameObject.GetComponent
-                <IntfShip>().isHit(damage);
+                <IntfShip>().isHit(-damage);
             Destroy(gameObject);
         }
     }

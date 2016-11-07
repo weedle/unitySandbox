@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ImplMainShip : MonoBehaviour, IntfShip {
+public class ImplMainShip : MonoBehaviour, IntfShip
+{
+    public bool inactive;
     public int rotationSpeed = 5;
     public float moveSpeed = 1;
     private string shipName;
+    public GameObject health;
+    public GameObject text;
+    public float healthPoints = 10;
+    public float maxHealth = 10;
+    private Vector2 velKeep;
 
     // Use this for initialization
     void Start () {
@@ -111,5 +118,67 @@ public class ImplMainShip : MonoBehaviour, IntfShip {
     public string getName()
     {
         return shipName;
+    }
+
+    public void isHit(float damage)
+    {
+        healthPoints -= damage;
+
+        float perc = healthPoints / maxHealth;
+        health.GetComponent<HealthBar>().setHealthPercentage(perc);
+
+        if (healthPoints <= 0)
+        {
+            inactive = true;
+            this.gameObject.GetComponent<SpriteRenderer>().
+                color = Color.white;
+            this.gameObject.
+                GetComponent<Animator>().Play("Explode");
+        }
+    }
+
+    public float getHealthPercent()
+    {
+        return (float)healthPoints / maxHealth;
+    }
+
+    public void setHealth(GameObject health)
+    {
+        this.health = health;
+    }
+
+    public void setTextObj(GameObject text)
+    {
+        this.text = text;
+    }
+
+    public void setText(string newText)
+    {
+        text.GetComponent<TextShip>().setText(shipName +
+            ": " + GetComponent<IntfShipController>().
+            getState().ToString().Substring(0, 1));
+    }
+
+    public bool getActive()
+    {
+        return !inactive;
+    }
+
+    public void pause()
+    {
+        inactive = true;
+
+        Rigidbody2D rbody = GetComponent<Rigidbody2D>(); 
+        velKeep = rbody.velocity;
+        rbody.velocity = Vector2.zero;
+
+    }
+
+    public void unpause()
+    {
+        inactive = false;
+
+        Rigidbody2D rbody = GetComponent<Rigidbody2D>();
+        rbody.velocity = velKeep;
     }
 }

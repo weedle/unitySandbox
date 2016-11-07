@@ -40,6 +40,7 @@ public class ImplMainShipController : MonoBehaviour, IntfShipController
 	
 	// Update is called once per frame
 	void Update () {
+        if (!ship.getActive()) return;
         getNextState();
     }
 
@@ -79,5 +80,25 @@ public class ImplMainShipController : MonoBehaviour, IntfShipController
     public string getName()
     {
         return ship.getName();
+    }
+
+    public float getHealthPerc()
+    {
+        return (float) healthPoints / maxHealth;
+    }
+
+    public ShipDefinitions.SState getState()
+    {
+        return ShipDefinitions.SState.Aiming;
+    }
+
+    public void pause()
+    {
+        ship.pause();
+    }
+
+    public void unpause()
+    {
+        ship.unpause();
     }
 }
