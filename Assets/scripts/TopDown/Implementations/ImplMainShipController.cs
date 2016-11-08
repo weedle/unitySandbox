@@ -53,7 +53,10 @@ public class ImplMainShipController : MonoBehaviour, IntfShipController
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+        ship.setText(ship.getName() +
+            ": " + "manual");
         if (!ship.getActive()) return;
         getNextState();
     }

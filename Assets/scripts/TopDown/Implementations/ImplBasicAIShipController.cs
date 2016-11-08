@@ -195,6 +195,9 @@ public class ImplBasicAIShipController : MonoBehaviour, IntfShipController
     // Update is called once per frame
     void Update()
     {
+        ship.setText(ship.getName() +
+        ": " + GetComponent<IntfShipController>().
+        getState().ToString().Substring(0, 1));
         if (!ship.getActive()) return;
         handleState();
         getNextState();

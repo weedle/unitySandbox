@@ -130,9 +130,7 @@ public class ImplMainShip : MonoBehaviour, IntfShip
 
     public void setText(string newText)
     {
-        text.GetComponent<TextShip>().setText(shipName +
-            ": " + GetComponent<IntfShipController>().
-            getState().ToString().Substring(0, 1));
+        text.GetComponent<TextShip>().setText(newText);
     }
 
     public bool getActive()
