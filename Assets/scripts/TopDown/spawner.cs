@@ -28,6 +28,7 @@ public class spawner : MonoBehaviour {
 
 	void Update ()
     {
+        if (Camera.main.GetComponent<Pause>().getPaused()) return;
         Vector3 temp;
         if (Time.frameCount % 1000 == 0)
         {

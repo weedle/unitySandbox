@@ -82,6 +82,22 @@ public class Pause : MonoBehaviour {
                         Vector3 topRght = obj.transform.position + new Vector3(0.01f, 0.01f);
                         ShipDefinitions.DrawSquare(bottomLeft, topRght, Color.yellow, 2*Time.deltaTime);
                     }
+                    if (ctrl.getTarget() != null)
+                    {
+                        if (ctrl.getFaction() == ShipDefinitions.Faction.PlayerAffil ||
+                            ctrl.getFaction() == ShipDefinitions.Faction.Player)
+                        {
+                            ShipDefinitions.DrawLine(obj.transform.position,
+                                ctrl.getTarget().transform.position, targetLinePlayer,
+                                2 * Time.deltaTime, 0.01f);
+                        }
+                        else if (ctrl.getFaction() == ShipDefinitions.Faction.Enemy)
+                        {
+                            ShipDefinitions.DrawLine(obj.transform.position,
+                                ctrl.getTarget().transform.position, targetLineEnemy,
+                                2 * Time.deltaTime, 0.01f);
+                        }
+                    }
                 }
             }
         }
@@ -103,5 +119,10 @@ public class Pause : MonoBehaviour {
             manualShip.AddComponent<ImplBasicAIShipController>();
         }
         manualShip = ship;
+    }
+
+    public bool getPaused()
+    {
+        return paused;
     }
 }

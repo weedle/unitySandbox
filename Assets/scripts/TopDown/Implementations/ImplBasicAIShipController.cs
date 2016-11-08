@@ -249,4 +249,9 @@ public class ImplBasicAIShipController : MonoBehaviour, IntfShipController
     {
         ship.unpause();
     }
+
+    public GameObject getTarget()
+    {
+        return target;
+    }
 }

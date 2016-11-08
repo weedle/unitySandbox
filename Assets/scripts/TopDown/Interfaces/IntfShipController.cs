@@ -16,4 +16,6 @@ public interface IntfShipController
     void pause();
 
     void unpause();
+
+    GameObject getTarget();
 }
