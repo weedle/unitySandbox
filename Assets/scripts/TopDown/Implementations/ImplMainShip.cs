@@ -24,33 +24,9 @@ public class ImplMainShip : MonoBehaviour, IntfShip
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 temp;
-        float vertExtent = Camera.main.orthographicSize;
-        float horzExtent = vertExtent * Screen.width / Screen.height;
-
-        float xbound = horzExtent * 0.9f;// 0.9f * Screen.width / 2; //8
-        float ybound = vertExtent * 0.9f;// 0.9f * Screen.height / 2; //5
-        if (transform.position.x < -xbound)
-        {
-            temp = new Vector3(xbound, transform.position.y, transform.position.z);
-            transform.position = temp;
-        }
-        if (transform.position.x > xbound)
-        {
-            temp = new Vector3(-xbound, transform.position.y, transform.position.z);
-            transform.position = temp;
-        }
-        if (transform.position.y > ybound)
-        {
-            temp = new Vector3(transform.position.x, -ybound, transform.position.z);
-            transform.position = temp;
-        }
-        if (transform.position.y < -ybound)
-        {
-            temp = new Vector3(transform.position.x, ybound, transform.position.z);
-            transform.position = temp;
-        }
-        temp = Vector3.zero;
+        // If the ship is out of bounds, Bounds.getPosInBounds
+        // will return a new position within bounds
+        transform.position = Bounds.getPosInBounds(transform.position);
     }
 
     public ShipDefinitions.SState getState()

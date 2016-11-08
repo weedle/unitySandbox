@@ -83,7 +83,8 @@
     <Compile Include="Assets\scripts\MachineDefinitions.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
     <Compile Include="Assets\scripts\TextShip.cs" />
-    <Compile Include="Assets\scripts\TopDown\Implementations\ImplBasicAIShip.cs" />
+    <Compile Include="Assets\scripts\TopDown\Bounds.cs" />
+    <Compile Include="Assets\scripts\TopDown\Implementations\ImplBasicAIShipController.cs" />
     <Compile Include="Assets\scripts\TopDown\Implementations\ImplCrownFiringModule.cs" />
     <Compile Include="Assets\scripts\TopDown\Implementations\ImplFlamethrowerFiringModule.cs" />
     <Compile Include="Assets\scripts\TopDown\Implementations\ImplHealMissileFiringModule.cs" />

@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class ImplBasicAIShip : MonoBehaviour, IntfShipController
+public class ImplBasicAIShipController : MonoBehaviour, IntfShipController
 {
     private ShipDefinitions.SState state = ShipDefinitions.SState.Searching;
     public IntfShip ship;
@@ -227,8 +227,7 @@ public class ImplBasicAIShip : MonoBehaviour, IntfShipController
 
     void OnMouseDown()
     {
-        if (enabled) disable();
-        else enable();
+        Camera.main.GetComponent<Pause>().requestManualControl(gameObject);
     }
 
     public string getName()

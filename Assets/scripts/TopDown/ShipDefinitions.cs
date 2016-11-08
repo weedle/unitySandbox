@@ -7,7 +7,7 @@ public class ShipDefinitions
     static string[] names = new string[] {
         "Alice", "Bob", "Carol", "Daisy", "Eliza",
         "Francis", "Greg", "Harry", "Ingrid", "Jenne",
-        "Jen", "Jo", "Kevin", "Letticia", "Morrigan", 
+        "Jen", "Jo", "Kevin", "Letticia", "Morrigan",
         "Nancy", "Orpheus", "Penelope", "Quark", "Stephanie"};
     // SHIP DEFINITIONS
 
@@ -36,7 +36,7 @@ public class ShipDefinitions
 
         return v3;
     }
-    
+
     public static void DrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.2f, float width = 0.075f)
     {
         GameObject myLine = new GameObject();
@@ -49,6 +49,16 @@ public class ShipDefinitions
         lr.SetPosition(0, start);
         lr.SetPosition(1, end);
         GameObject.Destroy(myLine, duration);
+    }
+
+    public static void DrawSquare(Vector3 bottomLeft, Vector3 topRight, Color color, float duration = 0.2f, float width = 0.075f)
+    {
+        Vector3 bottomRight = new Vector3(topRight.x, bottomLeft.y);
+        Vector3 topLeft = new Vector3(bottomLeft.x, topRight.y);
+        ShipDefinitions.DrawLine(bottomLeft, bottomRight, color, duration, width);
+        ShipDefinitions.DrawLine(bottomLeft, topLeft, color, duration, width);
+        ShipDefinitions.DrawLine(topRight, bottomRight, color, duration, width);
+        ShipDefinitions.DrawLine(topRight, topLeft, color, duration, width);
     }
 
     // find quickest path for thing at angle1 to reach angle2
