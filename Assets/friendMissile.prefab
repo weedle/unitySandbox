@@ -106,8 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c520eec59fde794e91493543ae94a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inactive: 0
   rotationSpeed: 5
-  moveSpeed: 0.4
+  moveSpeed: 0.8
+  health: {fileID: 0}
+  text: {fileID: 0}
+  healthPoints: 40
+  maxHealth: 40
 --- !u!114 &114000011268493032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -130,11 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcf1d6ab71c088340bc2beb184c927e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  text: {fileID: 0}
-  healthPoints: 10
-  maxHealth: 10
-  inactive: 0
 --- !u!114 &114000011390474022
 MonoBehaviour:
   m_ObjectHideFlags: 1

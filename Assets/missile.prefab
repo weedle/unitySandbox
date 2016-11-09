@@ -105,10 +105,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 40
+  active: 1
   faction: 1
   target: {fileID: 0}
   moveSpeed: 3
   rotationSpeed: 10
+  damage: 16
 --- !u!114 &114000011349439884
 MonoBehaviour:
   m_ObjectHideFlags: 1

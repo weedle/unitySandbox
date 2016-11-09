@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 0
+  active: 1
   faction: 0
   target: {fileID: 0}
   moveSpeed: 3

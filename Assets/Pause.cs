@@ -15,6 +15,12 @@ public class Pause : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (manualShip != null)
+        {
+            Vector3 bottomLeft = manualShip.transform.position - new Vector3(0.01f, 0.01f);
+            Vector3 topRght = manualShip.transform.position + new Vector3(0.01f, 0.01f);
+            ShipDefinitions.DrawSquare(bottomLeft, topRght, Color.yellow, 2 * Time.deltaTime);
+        }
         if (Input.GetButtonDown("Pause"))
         {
             if (pausedOnce) return;
@@ -76,12 +82,6 @@ public class Pause : MonoBehaviour {
                 if (obj.GetComponent<IntfShipController>() != null)
                 {
                     IntfShipController ctrl = obj.GetComponent<IntfShipController>();
-                    if(ctrl.GetType().Equals(typeof(ImplMainShipController)))
-                    {
-                        Vector3 bottomLeft = obj.transform.position - new Vector3(0.01f, 0.01f);
-                        Vector3 topRght = obj.transform.position + new Vector3(0.01f, 0.01f);
-                        ShipDefinitions.DrawSquare(bottomLeft, topRght, Color.yellow, 2*Time.deltaTime);
-                    }
                     if (ctrl.getTarget() != null)
                     {
                         if (ctrl.getFaction() == ShipDefinitions.Faction.PlayerAffil ||

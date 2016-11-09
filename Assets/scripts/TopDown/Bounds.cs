@@ -30,6 +30,16 @@ public class Bounds : MonoBehaviour
         topRight = Vector3.zero;
     }
 
+    public static Vector2 getRandPosInBounds()
+    {
+        Vector2 randPt = Vector2.zero;
+
+        randPt.x = Random.Range(-xbound, xbound);
+        randPt.y = Random.Range(-ybound, ybound);
+
+        return randPt;
+    }
+
     public static Vector3 getPosInBounds(Vector3 position)
     {
         vertExtent = Camera.main.orthographicSize;

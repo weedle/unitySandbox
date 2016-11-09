@@ -6,9 +6,9 @@ public class ShipDefinitions
 {
     static string[] names = new string[] {
         "Alice", "Bob", "Carol", "Daisy", "Eliza",
-        "Francis", "Greg", "Harry", "Ingrid", "Jenne",
-        "Jen", "Jo", "Kevin", "Letticia", "Morrigan",
-        "Nancy", "Orpheus", "Penelope", "Quark", "Stephanie"};
+        "Fern", "Greg", "Harry", "Iris", "Jenne",
+        "Jen", "Jo", "Kevin", "Lucy", "Mark",
+        "Nancy", "Orpheus", "Pete", "Quark", "Steph"};
     // SHIP DEFINITIONS
 
     public enum SState
@@ -106,6 +106,11 @@ public class ShipDefinitions
     {
         int x = (int) Math.Floor((double) UnityEngine.Random.Range(1, 3000));
         string prefix = names[(int) Math.Floor((double) UnityEngine.Random.Range(0, names.Length))];
-        return prefix + x.ToString();
+        if(x > 999)
+            return prefix + x.ToString();
+        else if(x > 99)
+            return prefix + "0" + x.ToString();
+        else
+            return prefix + "00" + x.ToString();
     }
 }

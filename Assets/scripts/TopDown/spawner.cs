@@ -28,7 +28,7 @@ public class spawner : MonoBehaviour {
 
 	void Update ()
     {
-        if (Camera.main.GetComponent<Pause>().getPaused()) return;
+        //if (Camera.main.GetComponent<Pause>().getPaused()) return;
         Vector3 temp;
         if (Time.frameCount % 1000 == 0)
         {
@@ -40,7 +40,7 @@ public class spawner : MonoBehaviour {
             Resources.UnloadUnusedAssets();
         }
         counter++;
-
+        return;
         if (cooldown <= 0)
         {
             Vector2 cursorPoint = new Vector2(ShipDefinitions.getCursor().x,
@@ -108,10 +108,7 @@ public class spawner : MonoBehaviour {
                     if(touch.position.x < Screen.width / 10 &&
                         touch.position.y < Screen.height / 10)
                     {
-                        foreach (ImplMainShip ship in GameObject.FindObjectsOfType<ImplMainShip>())
-                        {
-                            Destroy(ship.transform.parent.gameObject);
-                        }
+                        deleteAll();
                     }
                     if (touch.position.x > Screen.width * 0.9 &&
     touch.position.y > Screen.height * 0.9)
@@ -127,7 +124,7 @@ public class spawner : MonoBehaviour {
         temp = Vector3.zero;
     }
 
-    void spawnBunch()
+    public void spawnBunch()
     {
         Vector3 temp;
         for (int i = 0; i <= 8; i++)
@@ -164,6 +161,30 @@ public class spawner : MonoBehaviour {
                 spawnAllyMissile(spawnPoint + spawnRand);
 
         }
+    }
+
+    public void spawnFireShip(ShipDefinitions.Faction faction, Vector2 spawnPoint)
+    {
+        if (faction.Equals(ShipDefinitions.Faction.PlayerAffil))
+            spawnAllyShip(spawnPoint);
+        else
+            spawnEnemyShip(spawnPoint);
+    }
+
+    public void spawnCrownShip(ShipDefinitions.Faction faction, Vector2 spawnPoint)
+    {
+        if (faction.Equals(ShipDefinitions.Faction.PlayerAffil))
+            spawnAllyCrown(spawnPoint);
+        else
+            spawnEnemyCrown(spawnPoint);
+    }
+
+    public void spawnMissileShip(ShipDefinitions.Faction faction, Vector2 spawnPoint)
+    {
+        if (faction.Equals(ShipDefinitions.Faction.PlayerAffil))
+            spawnAllyMissile(spawnPoint);
+        else
+            spawnEnemyMissile(spawnPoint);
     }
 
     void spawnAllyShip(Vector2 spawnPoint)
@@ -221,6 +242,19 @@ public class spawner : MonoBehaviour {
 
         TextShip textShip = textObj.GetComponent<TextShip>();
         textShip.target = obj;
+
+        if(Camera.main.GetComponent<Pause>().getPaused())
+        {
+            ctrl.pause();
+        }
+    }
+
+    public void deleteAll()
+    {
+        foreach (ImplMainShip ship in GameObject.FindObjectsOfType<ImplMainShip>())
+        {
+            Destroy(ship.transform.parent.gameObject);
+        }
     }
 
     void setFaction(GameObject obj, ShipDefinitions.Faction faction)

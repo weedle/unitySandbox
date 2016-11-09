@@ -10,7 +10,6 @@ public class HealingMissile : ParticleAbstract
 
     void Start()
     {
-        target = GetComponent<TargetFinder>().getFriendly(faction);
 
     }
     // Update is called once per frame
@@ -30,7 +29,7 @@ public class HealingMissile : ParticleAbstract
         }
         if (target == null)
         {
-            return;
+            target = GetComponent<TargetFinder>().getFriendly(faction);
         }
 
         Vector3 diff = target.transform.position - transform.position;

@@ -94,6 +94,7 @@
     <Compile Include="Assets\scripts\TopDown\Interfaces\IntfFiringModule.cs" />
     <Compile Include="Assets\scripts\TopDown\Interfaces\IntfShip.cs" />
     <Compile Include="Assets\scripts\TopDown\Interfaces\IntfShipController.cs" />
+    <Compile Include="Assets\scripts\TopDown\RespondScript.cs" />
     <Compile Include="Assets\scripts\TopDown\ShipDefinitions.cs" />
     <Compile Include="Assets\scripts\TopDown\TargetFinder.cs" />
     <Compile Include="Assets\scripts\TopDown\shipScript.cs" />

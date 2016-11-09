@@ -9,7 +9,6 @@ public class HomingMissile : ParticleAbstract {
 	
     void Start()
     {
-        target = GetComponent<TargetFinder>().getTarget(faction);
     }
 	// Update is called once per frame
 	void Update ()
@@ -26,7 +25,8 @@ public class HomingMissile : ParticleAbstract {
         }
         if (target == null)
         {
-            return;
+            target = GetComponent<TargetFinder>().getTarget(faction);
+            if (target == null) return;
         }
 
         Vector3 diff = target.transform.position - transform.position;

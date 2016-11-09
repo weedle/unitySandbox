@@ -4,7 +4,7 @@ using System.Collections;
 public abstract class ParticleAbstract : MonoBehaviour {
     public int lifetime;
     private Vector2 velKeep;
-    public bool active = false;
+    public bool active = true;
     public ShipDefinitions.Faction faction;
 
     // Use this for initialization
@@ -12,8 +12,9 @@ public abstract class ParticleAbstract : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	}
+	void Update ()
+    {
+    }
 
     public void pause()
     {
